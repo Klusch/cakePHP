@@ -5,6 +5,7 @@
  * This file is application-wide controller file. You can put all
  * application-wide controller-related methods here.
  *
+ * PHP 5
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -30,6 +31,26 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	
-	public $components = array('DebugKit.Toolbar');
+
+	public $components = array('DebugKit.Toolbar',
+		'Session',
+		'Acl',
+		'Auth' => array(
+			'authorize' => array(
+				'Actions' => array('actionPath' => 'controllers')
+								)
+						),
+	);
+
+	public $helpers = array('Html', 'Form', 'Session');
+
+	public function beforeFilter() {
+		// Immer auf alle index und view-Seiten Zugriff
+		//$this->Auth->allow('index', 'view');
+		$this->Auth->allow();
+		//Configure AuthComponent
+		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+		$this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
+	}
 }
