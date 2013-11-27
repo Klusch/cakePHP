@@ -45,9 +45,16 @@ class AppController extends Controller {
 	public $helpers = array('Html', 'Form', 'Session');
 
 	public function beforeFilter() {
-		// Immer auf alle index und view-Seiten Zugriff
+		
+		// allow all index and view pages
 		//$this->Auth->allow('index', 'view');
-		$this->Auth->allow();
+		
+		// allow everything
+		//$this->Auth->allow();
+		
+		// allow home
+		$this->Auth->allow('display');
+		
 		//Configure AuthComponent
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');

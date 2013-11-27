@@ -30,8 +30,8 @@ class GroupFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'name' => 'Lorem ipsum dolor sit amet',
-			'created' => '2013-11-11 19:22:27',
-			'modified' => '2013-11-11 19:22:27'
+			'created' => '2013-11-27 22:14:11',
+			'modified' => '2013-11-27 22:14:11'
 		),
 	);
 
