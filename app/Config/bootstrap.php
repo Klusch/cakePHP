@@ -8,8 +8,6 @@
  * You should also use this file to include any files that provide global functions/constants
  * that your application uses.
  *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -72,8 +70,6 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
-CakePlugin::load('Localized');
-
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:
  *
