@@ -11,6 +11,7 @@ class Unit extends AppModel {
 
 
 	public $displayField = 'unit';
+	public $order = 'Unit.unit ASC';
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

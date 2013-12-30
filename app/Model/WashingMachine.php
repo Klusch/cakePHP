@@ -12,6 +12,10 @@ App::uses('AppModel', 'Model');
 class WashingMachine extends AppModel {
 
 	public $displayField = 'program_id';
+    public $order = array("Program.name" => "asc",
+                          "Temperature.value" => "asc",
+                          "WashingMachine.power_consumtion" => "asc"
+    );
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

@@ -6,9 +6,9 @@
 		echo $this->Form->input('program_id');
 		echo $this->Form->input('temperature_id');
 		echo $this->Form->input('spin_id');
+		echo $this->Form->input('duration');
 		echo $this->Form->input('power_consumtion');
 		echo $this->Form->input('unit_id');
-		echo $this->Form->input('duration');
 		echo $this->Form->input('Addition');
 	?>
 	</fieldset>

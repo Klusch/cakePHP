@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
 class Temperature extends AppModel {
 
     public $displayField = 'value';
+    public $order = 'Temperature.value ASC';
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

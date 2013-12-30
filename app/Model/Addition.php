@@ -9,6 +9,7 @@ class Addition extends AppModel {
 
     public $useTable = 'additions';
     public $displayField = 'addition';
+    public $order = 'Addition.addition ASC';
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

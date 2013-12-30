@@ -14,6 +14,7 @@ class Cost extends AppModel {
  * @var mixed False or table name
  */
 	public $useTable = 'cost';
+	public $order = 'Cost.name ASC';
 
 /**
  * Display field
