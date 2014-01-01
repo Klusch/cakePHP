@@ -114,9 +114,6 @@
     });
 })( jQuery );
 
-$(function () {
-    $('[data-role=input-control], .input-control').inputControl();
-});
 
 (function( $ ) {
     $.widget("metro.inputTransform", {
@@ -176,8 +173,8 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
+            wrapper.insertBefore(element);
 
             element.remove();
 
@@ -191,8 +188,8 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
-            clone.appendTo(wrapper);
+            clone.val(element.val()).appendTo(wrapper);
+            wrapper.insertBefore(element);
 
             element.remove();
 
@@ -209,12 +206,12 @@ $(function () {
             var parent = element.parent();
             var caption = $("<span/>").addClass("caption").html( element.data('caption') != undefined ? element.data('caption') : "" );
 
-            wrapper.appendTo(parent);
             label.appendTo(wrapper);
             clone.appendTo(label);
             button.appendTo(label);
             caption.appendTo(label);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -230,12 +227,12 @@ $(function () {
             var parent = element.parent();
             var caption = $("<span/>").addClass("caption").html( element.data('caption') != undefined ? element.data('caption') : "" );
 
-            wrapper.appendTo(parent);
             label.appendTo(wrapper);
             clone.appendTo(label);
             button.appendTo(label);
             caption.appendTo(label);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -251,12 +248,12 @@ $(function () {
             var parent = element.parent();
             var caption = $("<span/>").addClass("caption").html( element.data('caption') != undefined ? element.data('caption') : "" );
 
-            wrapper.appendTo(parent);
             label.appendTo(wrapper);
             clone.appendTo(label);
             button.appendTo(label);
             caption.appendTo(label);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -270,10 +267,10 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
             button.appendTo(wrapper);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -287,10 +284,10 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
             button.appendTo(wrapper);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -304,10 +301,10 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
             button.appendTo(wrapper);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -321,10 +318,10 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
             button.appendTo(wrapper);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -338,10 +335,10 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
             button.appendTo(wrapper);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -355,10 +352,10 @@ $(function () {
             var clone = element.clone(true);
             var parent = element.parent();
 
-            wrapper.appendTo(parent);
             clone.appendTo(wrapper);
             button.appendTo(wrapper);
 
+            wrapper.insertBefore(element);
             element.remove();
 
             return wrapper;
@@ -372,6 +369,3 @@ $(function () {
     })
 })( jQuery );
 
-$(function () {
-    $('[data-transform=input-control]').inputTransform();
-});

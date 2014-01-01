@@ -81,6 +81,7 @@
 
             if (options.showScore) {
                 $("<span/>").addClass('score-hint').html(options.scoreHint+options.score).appendTo(element);
+                element.css('height', 'auto');
             } else {
                 element.find('ul').css('margin-bottom', 0);
             }
@@ -96,6 +97,3 @@
     })
 })( jQuery );
 
-$(function () {
-    $('[data-role=rating]').rating();
-});

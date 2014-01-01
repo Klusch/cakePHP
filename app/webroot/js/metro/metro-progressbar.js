@@ -81,6 +81,3 @@
     })
 })( jQuery );
 
-$(function () {
-    $('[data-role=progress-bar]').progressbar();
-});

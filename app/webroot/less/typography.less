@@ -93,43 +93,40 @@
 }
 
 .header {
-    font-size: 42pt;
-    line-height: 44pt;
+    .font-height(4.8rem);
 }
 
 .subheader {
-    font-size: 20pt;
-    line-height: 24pt;
+    .font-height(2.5rem);
     letter-spacing: 0.01em;
 }
 
 .subheader-secondary {
     .subheader;
     .text-rest2-state;
-    font-size: 16pt;
+    .font-height(2.2rem);
+    //font-weight: bold;
 }
 
 .item-title {
     #font > .segoe-bold;
     #font > .bold;
     .text-rest-state;
-    font-size: 11pt;
-    line-height: 15pt;
+    .font-height(1.6rem);
     letter-spacing: 0.02em;
 }
 
 .item-title-secondary {
     .item-title;
     .text-rest2-state;
-    font-size: 10pt;
+    .font-height(1.4rem);
 }
 
 .navigation {
     #font > .segoe;
     #font > .normal;
     .text-rest2-state;
-    font-size: 10pt;
-    line-height: 12pt;
+    .font-height(1.2rem);
     letter-spacing: 0.02em;
 }
 
@@ -150,8 +147,8 @@
 .tertiary-text {
     #font > .segoe;
     .text-rest-state;
-    font-size: 10pt !important;
-    line-height: 11pt !important;
+    .font-size(1.3rem);
+    .line-height(1.5rem);
     font-weight: normal !important;
 }
 
@@ -163,24 +160,26 @@
 .readable-text {
     #font > .cambria;
     #font > .normal;
-    font-size: 14pt;
-    line-height: 16pt;
+    .font-size(1.8rem);
+    .line-height(2rem);
 }
 
 .menu-title {
     .subheader;
-    font-size: 30pt;
+    //font-size: 30pt;
+    .font-size(4.0rem);
 }
 
 .menu-item {
     .subheader-secondary;
-    font-size: 14pt;
+    //font-size: 14pt;
+    .font-size(2.2rem);
 }
 
 .menu-item-secondary {
     .item-title;
     #font > .normal;
-    line-height: 16px;
+    .line-height(1.4rem);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -190,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { .header;}
 h2 { .subheader }
-h3 { .subheader-secondary }
+h3 { .subheader-secondary; font-weight: bold; }
 h4 { .item-title }
 h5 { .item-title-secondary }
 h6 { .body-text; #font > .bold; font-size: 9pt;}
@@ -308,6 +307,39 @@ ul, ol {
             padding-left: 25px;
         }
     }
+}
+
+ol.styled {
+    counter-reset:li;
+    margin-left:0;
+    padding-left:0;
+    .readable-text;
+}
+ol.styled > li {
+    position:relative;
+    margin:0 0 6px 2em;
+    padding:4px 12px;
+    list-style:none;
+}
+ol.styled > li:before {
+    content:counter(li);
+    counter-increment:li;
+    position:absolute;
+    top:-2px;
+    left: -2em;
+    box-sizing:border-box;
+    width: 2em;
+    margin-right:8px;
+    padding:4px;
+    color:#fff;
+    background:#666;
+    font-weight:bold;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    text-align:center;
+}
+
+ol.styled.rounded > li:before {
+    border-radius: 100%;
 }
 
 dl {

@@ -26,7 +26,9 @@
             if (element.data('duration') != undefined) {this.options.duration = element.data('duration');}
             if (element.data('easing') != undefined) {this.options.easing = element.data('easing');}
 
-            this._frames = element.children(".tile-content");
+            //this._frames = element.children(".tile-content, .event-content");
+            this._frames = element.children("[class*='-content']");
+            //console.log(this._frames);
 
             if (this._frames.length <= 1) return;
 
@@ -37,14 +39,26 @@
                 'height': element.height()
             };
 
-            this._start();
+            element.on('mouseenter', function(){
+                that.stop();
+            });
+
+            element.on('mouseleave', function(){
+                that.start();
+            });
+
+            this.start();
         },
 
-        _start: function(){
+        start: function(){
             var that = this;
             this._interval = setInterval(function(){
                 that._animate();
             }, this.options.period);
+        },
+
+        stop: function(){
+            clearInterval(this._interval);
         },
 
         _animate: function(){
@@ -145,6 +159,4 @@
     })
 })( jQuery );
 
-$(function () {
-    $('[data-role=live-tile]').livetile();
-});
+

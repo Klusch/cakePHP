@@ -50,6 +50,4 @@
     })
 })( jQuery );
 
-$(function () {
-    $('[data-role=listview]').listview();
-});
+

@@ -92,6 +92,5 @@
     })
 })( jQuery );
 
-$(function(){
-    $('[data-role=tab-control]').tabcontrol();
-});
+
+

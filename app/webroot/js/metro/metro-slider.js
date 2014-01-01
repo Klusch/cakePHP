@@ -264,6 +264,4 @@
     })
 })( jQuery );
 
-$(function(){
-    $('[data-role=slider]').slider();
-});
+
