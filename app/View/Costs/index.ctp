@@ -1,14 +1,40 @@
+<?php
+$this->start('frameRequest');
+   echo 'true';
+$this->end(); 
+?>
+
+<?php
+$this->start('topTiles');
+    echo $this->Tile->getCategoryItem();
+    echo $this->Tile->addTile();
+    $destination = array('action' => 'overall');
+    echo $this->Tile->specialTile('icon-dollar-2', $destination, 'bg-yellow', null);
+    echo $this->Tile->emptyTilesBar(4);
+$this->end();
+?>
+
+<?php
+$this->start('sideTiles');
+    //echo $this->Tile->specialTile('icon-plus-2', null, 'bg-grayLighter', null);
+    echo $this->Tile->emptyTilesBar(4);
+$this->end(); 
+?> 
+
 <div class="costs index">
 	<h2><?php echo __('Costs'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table">
+	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('price'); ?></th>
-			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('sub_category_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="text-left"><?php echo $this->Paginator->sort('id'); ?></th>
+			<th class="text-left"><?php echo $this->Paginator->sort('name'); ?></th>
+			<th class="text-left"><?php echo $this->Paginator->sort('price'); ?></th>
+			<th class="text-left"><?php echo $this->Paginator->sort('category_id'); ?></th>
+			<th class="text-left"><?php echo $this->Paginator->sort('sub_category_id'); ?></th>
+			<th class="text-left actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php foreach ($costs as $cost): ?>
 	<tr>
 		<td><?php echo h($cost['Cost']['id']); ?>&nbsp;</td>
@@ -25,6 +51,7 @@
 		</td>
 	</tr>
 <?php endforeach; ?>
+    </tbody>
 	</table>
 	<p>
 	<?php

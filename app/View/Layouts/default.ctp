@@ -29,33 +29,54 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-
+		echo $this->Html->css('metro-bootstrap')."\n";
+        
+		echo $this->Html->script('jquery/jquery.min.js')."\n";
+		echo $this->Html->script('jquery/jquery.widget.min.js')."\n";
+		echo $this->Html->script('metro/metro-loader.js')."\n";
+		echo $this->Html->script('min/metro.min.js')."\n";
+		
+		// http://www.rgraph.net/docs/starting-with-rgraph.html
+		echo $this->Html->script('RGraph/RGraph.common.core.js')."\n";
+		echo $this->Html->script('RGraph/RGraph.common.tooltips.js')."\n";
+		echo $this->Html->script('RGraph/RGraph.common.dynamic.js')."\n";
+		echo $this->Html->script('RGraph/RGraph.pie.js')."\n";
+		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
-<body>
+<body class="metro">
+<?php echo $this->Session->flash(); ?>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+	
+	   <div class="grid" style="margin-bottom:0;">
+         <div class="row"> <!--  style="background:rgba(255, 0, 0, 0.52);">  -->
+            <div id="toptiles" style="padding-left: 10px">
+            <?php 
+              echo $this->fetch('topTiles');
+            ?> 
+            </div>
+         </div>
+         
+         <div id="contentWithTiles" class="row"> <!-- style="background:rgba(193, 0, 123, 0.52);"> --> 
+            <div id="sidetiles" class="span2" style="padding-left: 10px;"> <!-- background:rgba(193, 55, 123, 0.52); -->
+              <?php echo $this->fetch('sideTiles'); ?> 
+            </div>
+            <div id="content" class="content" style="margin:0px; background:rgba(220, 155, 83, 0.52);"> 
+              <?php if ($this->fetch('frameRequest') == 'true') {  
+                      echo "<div class='balloon span10' style='padding:15px'>";
+                    } else {
+                      echo "<div class='balloon span10' style='padding:0px; border:0px;'>";	
+                    }
+                     
+                    echo $this->fetch('content');
+              ?></div>
+           </div>         
+        </div><!-- ENDE contentWithTiles -->
 
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
+	</div><!-- ENDE grid -->
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

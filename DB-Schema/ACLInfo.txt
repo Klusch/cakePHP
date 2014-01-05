@@ -1,0 +1,3 @@
+To add acl
+
+./Console/cake AclExtras.AclExtras aco_sync
