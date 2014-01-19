@@ -20,23 +20,33 @@ $this->start('sideTiles');
 $this->end(); 
 ?> 
 
+<?php
+
+
+?>
+
 <div>
 <?php
-echo $this->Tile->emptyTilesBar(6);
+$colors = $this->Tile->colors;
+for ($i=0; $i<6; $i++) {
+	echo $this->Tile->emptyTile($colors[$i]);
+}
 ?>
 </div>
-<div style="clear:both"></div>
-<div> 
-<?php
-echo $this->Tile->emptyTilesBar(6);
-?></div>
-<div style="clear:both"></div>
-<div> 
-<?php
-echo $this->Tile->emptyTilesBar(6);
-?></div>
-<div style="clear:both"></div>
-<div> 
-<?php
-echo $this->Tile->emptyTilesBar(6);
-?></div>
+
+<?php 
+  $this->Power->hilf(6, $colors);
+  $this->Power->hilf(12, $colors);
+  $this->Power->hilf(18, $colors);
+  $this->Power->hilf(24, $colors);
+  $this->Power->hilf(30, $colors);
+  $this->Power->hilf(36, $colors);
+  $this->Power->hilf(42, $colors);
+
+  echo "<div style='clear:both'></div>";
+  echo "<div>";
+  for ($i=48; $i<53; $i++) {
+	  echo $this->Tile->emptyTile($colors[$i]);
+  }
+  echo "</div>";
+?>

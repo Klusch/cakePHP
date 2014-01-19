@@ -37,19 +37,37 @@ class TileHelper extends AppHelper {
 
 	private $width_double = '250px';
 
+	public $colors = array('bg-black', 'bg-white', 'bg-lime', 'bg-green', 'bg-emerald',
+	                        'bg-teal', 'bg-cyan', 'bg-cobalt', 'bg-indigo', 'bg-violet',
+	                        'bg-pink', 'bg-magenta', 'bg-crimson', 'bg-red', 'bg-orange',
+	                        'bg-amber', 'bg-yellow', 'bg-brown', 'bg-olive', 'bg-steel',
+	                        'bg-mauve', 'bg-taupe', 'bg-gray', 'bg-dark', 'bg-darker',
+	                        'bg-transparent', 'bg-darkBrown', 'bg-darkCrimson', 'bg-darkMagenta',
+	                        'bg-darkIndigo', 'bg-darkCyan', 'bg-darkCobalt', 'bg-darkTeal',
+	                        'bg-darkEmerald', 'bg-darkGreen', 'bg-darkOrange', 'bg-darkRed',
+	                        'bg-darkPink', 'bg-darkViolet', 'bg-darkBlue', 'bg-lightBlue',
+	                        'bg-lightRed', 'bg-lightGreen', 'bg-lighterBlue', 'bg-lightTeal',
+	                        'bg-lightOlive', 'bg-lightOrange', 'bg-lightPink', 'bg-grayDark',
+	                        'bg-grayDarker', 'bg-grayLight', 'bg-grayLighter', 'bg-blue'
+	);
+	
 	// ================================================================
 	// ============ Definition der Rubrik-Icons =======================
 
 	public $categorySet = array (
-			'banks' => array ('categoryIcon' => 'icon-stats-up', 'categoryColor' => 'bg-lime',
+			'banks' => array ('categoryIcon' => 'icon-stats-up', 'categoryColor' => 'bg-yellow',
 					'categoryDestination' => array('controller' => 'banks', 'action' => 'index'),
 	                'description' => 'Geldanlagen'
 			),	
-			'costs' => array ('categoryIcon' => 'icon-heart-2', 'categoryColor' => 'bg-lightGreen',
+			'costs' => array ('categoryIcon' => 'icon-heart-2', 'categoryColor' => 'bg-lime',
 					'categoryDestination' => array('controller' => 'costs', 'action' => 'index'),
 	                'description' => 'Kosten der Hochzeit'
-			),	
-			'movies' => array ('categoryIcon' => 'icon-film', 'categoryColor' => 'bg-lightBlue',
+			),
+			'joomlas' => array ('categoryIcon' => 'icon-joomla', 'categoryColor' => 'bg-amber',
+					'categoryDestination' => array('controller' => 'joomlas', 'action' => 'index'),
+	                'description' => 'Joomla Update'
+			),
+			'movies' => array ('categoryIcon' => 'icon-film', 'categoryColor' => 'bg-green',
 					'categoryDestination' => array('controller' => 'movies', 'action' => 'index'),
 	                'description' => 'Filme'
 			),
@@ -61,7 +79,7 @@ class TileHelper extends AppHelper {
 					'categoryDestination' => array('controller' => 'powers', 'action' => 'index'),
 	                'description' => 'Filme'
 			),
-			'projects' => array ('categoryIcon' => 'icon-lab', 'categoryColor' => 'bg-lightOrange',
+			'projects' => array ('categoryIcon' => 'icon-lab', 'categoryColor' => 'bg-orange',
 					'categoryDestination' => array('controller' => 'projects', 'action' => 'index'),
 	                'description' => 'Filme'
 			),					
@@ -69,7 +87,7 @@ class TileHelper extends AppHelper {
 			        'categoryDestination' => array('controller' => 'users', 'action' => 'index'),
 			        'description' => 'Benutzerverwaltung'
 			),
-			'userlogin' => array ('categoryIcon' => 'icon-key', 'categoryColor' => 'bg-green',
+			'userlogin' => array ('categoryIcon' => 'icon-key', 'categoryColor' => 'bg-darkEmerald',
 			        'categoryDestination' => array('controller' => 'users', 'action' => 'login'),
 			        'description' => 'Einlogen'
 			),			
@@ -92,6 +110,82 @@ class TileHelper extends AppHelper {
 		);
 	}
 
+	// =================================================================
+    // =========== Tiles with Badges ===================================
+	
+	/*
+	 * $parameters = array('color-bigarea' => 'bg-orange',
+     *                     'icon-bigarea'  => 'icon-layers',
+     *                     'image-bigarea' => null,
+     *                     'destination-smallarea' => array('controller' => $destination['controller'], 'action' => 'add'),
+     *     	               'text-overlay' => null,
+     *	                   'text-overlay-color' => 'fg-white',
+     *	                   'badge-color' => 'bg-emerald',
+     *	                   'badge-icon' => 'icon-plus-2',
+     *	                   'destination-bigarea' => $destination,
+     *	                   'title-bigarea' => $title
+     *	                   'title-smallarea' => null
+     *	);
+     *
+     *  - if image is set image will displayed else icon is used
+	 */
+	function tileBadge($parameters) {
+	    $result = "";
+        $result .= "<div class='tile " . $parameters['color-bigarea'] . "'>";
+        
+        if ($parameters['image-bigarea'] != null) {
+           $fill = "   <div class='tile-content image'>
+                          <img src='" . $parameters['image-bigarea'] ."'>
+                       </div>";        	
+        } else {
+           $fill = "   <div class='tile-content icon'>
+                          <i class='" . $parameters['icon-bigarea'] . "'></i>
+                       </div>";
+        }
+        
+        $fill .= "   <div class='brand'>";
+        
+        if ($parameters['text-overlay'] != null) {
+        	$fill .= "       <span class='label " . $parameters['text-overlay-color'] . "'>" . $parameters['text-overlay'] . "</span>";
+        }
+        
+        $fillsmall = "       <span class='badge " . $parameters['badge-color'] . "'><i class='" . $parameters['badge-icon'] . "'></i></span>";
+        
+        if ($parameters['destination-smallarea'] != null) {
+        	$fillsmall = $this->Html->link($fillsmall, $parameters['destination-smallarea'], array('escape' => false, 'title' => $parameters['title-smallarea']));
+        }
+        
+        $fill .= $fillsmall; 
+        $fill .= "   </div>";
+        
+        if ($parameters['destination-bigarea'] == null) {
+        	$result .= $fill;
+        } else {
+        	$result .= $this->Html->link($fill, $parameters['destination-bigarea'], array('escape' => false, 'title' => $parameters['title-bigarea']));
+        }
+        
+        $result .= "</div>";
+        return $result;
+	}		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// ================================================================
 	// =========== Hilfsfunktionen ====================================
 
@@ -116,11 +210,9 @@ class TileHelper extends AppHelper {
 		return $result;
 	}	
 	
-	public function emptyTile($type = 'tile'){
-		$space = "       ";
-		$result = "";
-		$result = $result.$space."<div class='tile ".$type."'>";
-		$result = $result.$space."</div>";
+	public function emptyTile($color = ''){
+		$result = "<div class='tile ".$color."'>";
+		$result .= "</div>";
 		return $result;
 	}
 

@@ -29,4 +29,56 @@ App::uses('Helper', 'View');
  * @package       app.View.Helper
  */
 class AppHelper extends Helper {
+	
+	// ================================================================
+	// =========== Breadcrumbs & Accordion ============================
+	
+	public function breadcrumbs($crumbs){
+	    $result = "";
+	    $home = array('controller' => 'pages', 'action' => 'home');
+        $target = "<i class='icon-home'></i>";
+	    
+	    $result .= "<nav class='breadcrumbs'>";
+        $result .= "   <ul>";
+        $result .= "     <li>" . $this->Html->link($target, $home,	array('escape' => false, 'title' => 'Home')) . "</li>";
+        $size = count($crumbs);
+        foreach ($crumbs as $i => $crumb) {
+        	if ($i == $size-1) {
+        		$result .= " <li class='active'>";
+        	} else {
+        		$result .= " <li>";
+        	}
+        	if (isset($crumb['link'])) {
+        		$result .= $this->Html->link($crumb['text'], $crumb['link'], array('escape' => false, 'title' => $crumb['text'])) . "</li>";
+        	} else {
+        		$result .= $crumb['text']. "</li>";
+        	}
+        }
+        
+        $result .= "  </ul>";
+        $result .= "</nav>";
+        return $result;
+	}
+	
+	function accordion($frames) {
+		$result = "";
+	    $result .= "<div class='accordion with-marker' data-role='accordion'>";
+	    
+	    foreach ($frames as $i => $frame) {
+           $result .= "  <div class='accordion-frame'>";
+           if ($i == 0) {
+              $result .= "    <a href='#' class='active heading'><div><div style='width:30px;float:right;margin-top:-2px'><button class='button small info'>" 
+                              . $frame['size'] . "</button></div><div>" . $frame['head'] . "</div>   </div></a>";
+           } else {
+           	  $result .= "    <a href='#' class='heading'><div><div style='width:30px;float:right;margin-top:-2px'><button class='button small info'>" 
+                              . $frame['size'] . "</button></div><div>" . $frame['head'] . "</div>   </div></a>";
+           }
+           $result .= "    <div class='content'>" . $frame['content'] . "</div>";
+           $result .= "  </div>";
+	    }
+	    
+        $result .= "</div>";
+        return $result;
+	}
+	
 }
