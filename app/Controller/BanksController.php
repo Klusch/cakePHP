@@ -55,6 +55,8 @@ class BanksController extends AppController {
 				$this->Session->setFlash(__('The bank could not be saved. Please, try again.'));
 			}
 		}
+		$bankTypes = $this->Bank->BankType->find('list');
+		$this->set(compact('bankTypes'));
 	}
 
 /**
@@ -79,6 +81,8 @@ class BanksController extends AppController {
 			$options = array('conditions' => array('Bank.' . $this->Bank->primaryKey => $id));
 			$this->request->data = $this->Bank->find('first', $options);
 		}
+		$bankTypes = $this->Bank->BankType->find('list');
+		$this->set(compact('bankTypes'));
 	}
 
 /**

@@ -41,26 +41,46 @@ class TileHelper extends AppHelper {
 	// ============ Definition der Rubrik-Icons =======================
 
 	public $categorySet = array (
+			'banks' => array ('categoryIcon' => 'icon-stats-up', 'categoryColor' => 'bg-lime',
+					'categoryDestination' => array('controller' => 'banks', 'action' => 'index'),
+	                'description' => 'Geldanlagen'
+			),	
 			'costs' => array ('categoryIcon' => 'icon-heart-2', 'categoryColor' => 'bg-lightGreen',
 					'categoryDestination' => array('controller' => 'costs', 'action' => 'index'),
 	                'description' => 'Kosten der Hochzeit'
 			),	
-			'movies' => array ('categoryIcon' => 'icon-enter', 'categoryColor' => 'bg-lightBlue',
+			'movies' => array ('categoryIcon' => 'icon-film', 'categoryColor' => 'bg-lightBlue',
 					'categoryDestination' => array('controller' => 'movies', 'action' => 'index'),
 	                'description' => 'Filme'
 			),
-			'pages' => array ('categoryIcon' => 'icon-enter', 'categoryColor' => 'bg-lightBlue',
-					'categoryDestination' => array('controller' => 'movies', 'action' => 'index'),
+			'pages' => array ('categoryIcon' => 'icon-home', 'categoryColor' => 'bg-grayDark',
+					'categoryDestination' => array('controller' => 'pages', 'action' => 'index'),
 	                'description' => 'Filme'
-			),			
+			),
+			'powers' => array ('categoryIcon' => 'icon-power', 'categoryColor' => 'bg-lightRed',
+					'categoryDestination' => array('controller' => 'powers', 'action' => 'index'),
+	                'description' => 'Filme'
+			),
+			'projects' => array ('categoryIcon' => 'icon-lab', 'categoryColor' => 'bg-lightOrange',
+					'categoryDestination' => array('controller' => 'projects', 'action' => 'index'),
+	                'description' => 'Filme'
+			),					
 			'users' => array ('categoryIcon' => 'icon-user', 'categoryColor' => 'bg-darkPink',
 			        'categoryDestination' => array('controller' => 'users', 'action' => 'index'),
 			        'description' => 'Benutzerverwaltung'
 			),
+			'userlogin' => array ('categoryIcon' => 'icon-key', 'categoryColor' => 'bg-green',
+			        'categoryDestination' => array('controller' => 'users', 'action' => 'login'),
+			        'description' => 'Einlogen'
+			),			
 	);
 
-	public function getCategoryItem() {
-		$hilf = strtolower($this->params['controller']);
+	public function getCategoryItem($category = null) {
+		if ($category == null) {
+		  $hilf = strtolower($this->params['controller']);
+		} else {
+		  $hilf = strtolower($category);	
+		}
 		$mySet = $this->categorySet[$hilf];
 		if (empty($mySet)) {
 			return $this->emptyTile();

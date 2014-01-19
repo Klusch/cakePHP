@@ -46,6 +46,12 @@ class CostsController extends AppController {
 		return $newValuesAndLabels;
 	}
 	
+	private function getOnlyValue($conditions) {
+	    $tmpValuesAndLabels = array('values' => '', 'labels' => '');
+		$tmpValuesAndLabels = $this->specialSQL($tmpValuesAndLabels, 'NA', $conditions);
+		return $tmpValuesAndLabels['values'];
+	}
+	
 	private function stopList($valuesAndLabels) {
 		$values = $valuesAndLabels['values'];
 		$labels = $valuesAndLabels['labels'];
@@ -96,21 +102,44 @@ class CostsController extends AppController {
 	public function festivity() {
 		$valuesAndLabels = $this->startList();
 
+		// -------------------
 		$conditions = array('Category.name' => 'Hochzeitsfeier', 'Subcategory.name' => null);
-		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Sonstiges', $conditions);		
+		$tmpValue = $this->getOnlyValue($conditions);
 		
-		$conditions = array('Category.name' => 'Hochzeitsfeier', 'Subcategory.name' => 'Blumenladen');
+		$conditions = array('Category.name' => 'Standesamt', 'Subcategory.name' => null);
+        $tmpValue += $this->getOnlyValue($conditions);
+        
+		$conditions = array('Category.name' => 'Kirche', 'Subcategory.name' => null);
+        $tmpValue += $this->getOnlyValue($conditions);
+		
+		$valuesAndLabels['values'] .= $tmpValue;
+		$valuesAndLabels['labels'] .= "'Sonstiges'";
+		// --------------------
+		
+		$conditions = array('Subcategory.name' => 'Blumenladen');
 		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Blumenschmuck', $conditions, true);		
 
-		$conditions = array('Category.name' => 'Hochzeitsfeier', 'Subcategory.name' => 'Essen und Trinken');
+		$conditions = array('Cost.name NOT LIKE ' => 'Probeessen%',
+		                    'Subcategory.name' => 'Essen und Trinken');
 		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Speisen und Getraenke', $conditions, true);			
 		
-		$conditions = array('Category.name' => 'Hochzeitsfeier', 'Subcategory.name' => 'Musik');
+		$conditions = array('Subcategory.name' => 'Musik');
 		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Musik', $conditions, true);
 
+		// --------------------
 		$conditions = array('Category.name' => 'Hochzeitsfeier',
 		                    'Subcategory.name LIKE' => 'Kleidung%');
-		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Kleidung', $conditions, true);
+		$tmpValue = $this->getOnlyValue($conditions);
+        
+		$conditions = array('Category.name' => 'Ringe');
+        $tmpValue += $this->getOnlyValue($conditions);
+
+        $valuesAndLabels['values'] .= ','.$tmpValue;
+		$valuesAndLabels['labels'] .= ", 'Kleidung und Ringe'";
+		// ---------------------
+		
+		$conditions = array('Category.name' => 'Karten');
+		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Einladungskarten', $conditions, true);
 		
         $this->stopList($valuesAndLabels);
 	}
@@ -124,7 +153,9 @@ class CostsController extends AppController {
 		$conditions = array('Category.name' => 'Hochzeitsfeier',
 		                    'Subcategory.name LIKE' => '%utigam)');
 		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Braeutigam Kleidung', $conditions, true);		
-		
+
+		$conditions = array('Category.name' => 'Ringe');
+		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Ringe', $conditions, true);			
 		$this->stopList($valuesAndLabels);
 	}
 	
@@ -138,6 +169,9 @@ class CostsController extends AppController {
 		$conditions = array('Category.name' => 'Hochzeitsfeier', 'Subcategory.name' => 'Essen und Trinken',
 		                    'Cost.name LIKE' => 'Getr%');
 		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Getraenke', $conditions, true);		
+
+		$conditions = array('Category.name' => 'Standesamt', 'Subcategory.name' => 'Essen und Trinken');
+		$valuesAndLabels = $this->specialSQL($valuesAndLabels, 'Speisen nach Standesamt', $conditions, true);		
 		
 		$this->stopList($valuesAndLabels);
 	}
@@ -178,6 +212,11 @@ class CostsController extends AppController {
  * @return void
  */
 	public function index() {
+		switch ($this->Session->read('Auth.User.username')) {
+			case 'developer' : break;
+			default : $this->redirect(array('controller' => 'costs', 'action' => 'overall'));
+		}
+		
 		$this->Cost->recursive = 0;
 		$this->set('costs', $this->Paginator->paginate());
 	}

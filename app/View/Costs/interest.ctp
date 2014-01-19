@@ -6,13 +6,14 @@ $this->end();
 
 <?php
 $this->start('topTiles');
-    echo $this->Tile->getCategoryItem();  
+    echo $this->Tile->getCategoryItem('pages');
     echo $this->Tile->emptyTilesBar(6);
 $this->end();
 ?>
 
 <?php
 $this->start('sideTiles');
+    echo $this->Tile->getCategoryItem();  
     $destination = array('action' => 'overall');
     echo $this->Tile->specialTile('icon-dollar-2', $destination, 'bg-grayLighter', null);
     $destination = array('action' => 'festivity');

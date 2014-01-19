@@ -1,0 +1,7 @@
+CREATE TABLE projects (
+  id			  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name			VARCHAR(255) NOT NULL,
+  created   DATETIME,
+  modified  DATETIME,
+  PRIMARY KEY(id)
+);

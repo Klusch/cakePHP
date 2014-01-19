@@ -6,7 +6,7 @@ $this->end();
 
 <?php
 $this->start('topTiles');
-    echo $this->Tile->getCategoryItem();
+    echo $this->Tile->getCategoryItem('pages');
     echo $this->Tile->addTile();
     $destination = array('action' => 'overall');
     echo $this->Tile->specialTile('icon-dollar-2', $destination, 'bg-yellow', null);
@@ -16,8 +16,9 @@ $this->end();
 
 <?php
 $this->start('sideTiles');
+    echo $this->Tile->getCategoryItem();
     //echo $this->Tile->specialTile('icon-plus-2', null, 'bg-grayLighter', null);
-    echo $this->Tile->emptyTilesBar(4);
+    echo $this->Tile->emptyTilesBar(3);
 $this->end(); 
 ?> 
 

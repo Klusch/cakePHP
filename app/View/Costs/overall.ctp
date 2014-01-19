@@ -6,7 +6,7 @@ $this->end();
 
 <?php
 $this->start('topTiles');
-    echo $this->Tile->getCategoryItem();
+    echo $this->Tile->getCategoryItem('pages');
     $destination = array('action' => 'festivity');
     echo $this->Tile->specialTile('icon-dollar', $destination, 'bg-red', 'Feier-Details');
     $destination = array('action' => 'journey');
@@ -17,16 +17,13 @@ $this->end();
 
 <?php
 $this->start('sideTiles');
+    echo $this->Tile->getCategoryItem();
     echo $this->Tile->specialTile('icon-dollar-2', null, 'bg-grayLighter', null);
-    echo $this->Tile->emptyTilesBar(4);
+    echo $this->Tile->emptyTilesBar(3);
 $this->end(); 
 ?> 
 
-<?php 
-//$values = "[4,8,6,3,5,2]";
-//$labels = "['Henning','Louis','John','Pete','Lucy','Fred']";
-?>
-
+<h2>Gesamtkosten der Hochzeit</h2>
 
 <canvas id="cvs" width="600" height="250">[No canvas support]</canvas>
 

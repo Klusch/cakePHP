@@ -1,11 +1,11 @@
 <?php
-App::uses('Bank', 'Model');
+App::uses('Project', 'Model');
 
 /**
- * Bank Test Case
+ * Project Test Case
  *
  */
-class BankTest extends CakeTestCase {
+class ProjectTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,8 +13,7 @@ class BankTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.bank',
-		'app.bank_type'
+		'app.project'
 	);
 
 /**
@@ -24,7 +23,7 @@ class BankTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Bank = ClassRegistry::init('Bank');
+		$this->Project = ClassRegistry::init('Project');
 	}
 
 /**
@@ -33,7 +32,7 @@ class BankTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Bank);
+		unset($this->Project);
 
 		parent::tearDown();
 	}
