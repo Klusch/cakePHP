@@ -3,14 +3,15 @@
 /app/Config/database.php
 /app/tmp
 /lib/Cake/Console/Templates/skel/tmp/
-/plugins
-/vendors
+/app/.settings
 /build
 /dist
 /tags
+/app/nbproject
 
 # OS generated files #
 ######################
+.project
 .DS_Store
 .DS_Store?
 ._*
