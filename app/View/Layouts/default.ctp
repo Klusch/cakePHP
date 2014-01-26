@@ -52,6 +52,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 	
 	   <div class="grid" style="margin-bottom:0;">
+	   
          <div class="row"> <!--  style="background:rgba(255, 0, 0, 0.52);">  -->
             <div id="toptiles" style="padding-left: 10px">
             <?php 
@@ -59,6 +60,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             ?> 
             </div>
          </div>
+         
+         <?php echo $this->fetch('breadCrumbs'); ?> 
          
          <div id="contentWithTiles" class="row"> <!-- style="background:rgba(193, 0, 123, 0.52);"> --> 
             <div id="sidetiles" class="span2" style="padding-left: 10px;"> <!-- background:rgba(193, 55, 123, 0.52); -->

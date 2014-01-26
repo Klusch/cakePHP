@@ -1,25 +1,31 @@
 <?php
+// -----------------------------------------------------------------------------------
 // View/Banks/index.ctp
-$this->start('frameRequest');
-   echo 'true';
-$this->end(); 
+  $this->start('frameRequest');
+    echo 'true';
+  $this->end();
+// -----------------------------------------------------------------------------------   
 ?>
 
 <?php
-$this->start('topTiles');
+// -----------------------------------------------------------------------------------
+  $this->start('topTiles');
     echo $this->Tile->getCategoryItem('pages');
     echo $this->Tile->addTile();
     //$destination = array('controller' => 'banks', 'action' => 'add');
     //echo $this->Tile->specialTile('icon-chart-alt', $destination, 'bg-yellow', null);
     echo $this->Tile->emptyTilesBar(6);
-$this->end();
+  $this->end();
+// -----------------------------------------------------------------------------------  
 ?>
 
 <?php
-$this->start('sideTiles');
+// -----------------------------------------------------------------------------------
+  $this->start('sideTiles');
     echo $this->Tile->getCategoryItem();
     echo $this->Tile->emptyTilesBar(3);
-$this->end(); 
+  $this->end();
+// -----------------------------------------------------------------------------------   
 ?>
 
 <div class="banks index">

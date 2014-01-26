@@ -1,0 +1,1813 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-01-24 20:29+0100\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AdditionsController.php:37;71;98
+msgid "Invalid addition"
+msgstr ""
+
+#: Controller/AdditionsController.php:52;75
+msgid "The addition has been saved."
+msgstr ""
+
+#: Controller/AdditionsController.php:55;78
+msgid "The addition could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/AdditionsController.php:102
+msgid "The addition has been deleted."
+msgstr ""
+
+#: Controller/AdditionsController.php:104
+msgid "The addition could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/AdditionsWashingMachinesController.php:37;69;94
+msgid "Invalid additions washing machine"
+msgstr ""
+
+#: Controller/AdditionsWashingMachinesController.php:52;73
+msgid "The additions washing machine has been saved."
+msgstr ""
+
+#: Controller/AdditionsWashingMachinesController.php:55;76
+msgid "The additions washing machine could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/AdditionsWashingMachinesController.php:98
+msgid "The additions washing machine has been deleted."
+msgstr ""
+
+#: Controller/AdditionsWashingMachinesController.php:100
+msgid "The additions washing machine could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/BankTypesController.php:37;69;94
+msgid "Invalid bank type"
+msgstr ""
+
+#: Controller/BankTypesController.php:52;73
+msgid "The bank type has been saved."
+msgstr ""
+
+#: Controller/BankTypesController.php:55;76
+msgid "The bank type could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/BankTypesController.php:98
+msgid "The bank type has been deleted."
+msgstr ""
+
+#: Controller/BankTypesController.php:100
+msgid "The bank type could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/BanksController.php:37;71;98
+msgid "Invalid bank"
+msgstr ""
+
+#: Controller/BanksController.php:52;75
+msgid "The bank has been saved."
+msgstr ""
+
+#: Controller/BanksController.php:55;78
+msgid "The bank could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/BanksController.php:102
+msgid "The bank has been deleted."
+msgstr ""
+
+#: Controller/BanksController.php:104
+msgid "The bank could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/CategoriesController.php:37;69;94
+msgid "Invalid category"
+msgstr ""
+
+#: Controller/CategoriesController.php:52;73
+msgid "The category has been saved."
+msgstr ""
+
+#: Controller/CategoriesController.php:55;76
+msgid "The category could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/CategoriesController.php:98
+msgid "The category has been deleted."
+msgstr ""
+
+#: Controller/CategoriesController.php:100
+msgid "The category could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/CostsController.php:233;268;296
+msgid "Invalid cost"
+msgstr ""
+
+#: Controller/CostsController.php:248;272
+msgid "The cost has been saved."
+msgstr ""
+
+#: Controller/CostsController.php:251;275
+msgid "The cost could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/CostsController.php:300
+msgid "The cost has been deleted."
+msgstr ""
+
+#: Controller/CostsController.php:302
+msgid "The cost could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/GroupsController.php:37;69;94
+#: Controller/TilesController.php:42;74;99
+msgid "Invalid group"
+msgstr ""
+
+#: Controller/GroupsController.php:52;73
+#: Controller/TilesController.php:57;78
+msgid "The group has been saved."
+msgstr ""
+
+#: Controller/GroupsController.php:55;76
+#: Controller/TilesController.php:60;81
+msgid "The group could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/GroupsController.php:98
+#: Controller/TilesController.php:103
+msgid "The group has been deleted."
+msgstr ""
+
+#: Controller/GroupsController.php:100
+#: Controller/TilesController.php:105
+msgid "The group could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/IncomesController.php:37;72;100
+msgid "Invalid income"
+msgstr ""
+
+#: Controller/IncomesController.php:52;76
+msgid "The income has been saved."
+msgstr ""
+
+#: Controller/IncomesController.php:55;79
+msgid "The income could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/IncomesController.php:104
+msgid "The income has been deleted."
+msgstr ""
+
+#: Controller/IncomesController.php:106
+msgid "The income could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ProgramsController.php:37;69;94
+msgid "Invalid program"
+msgstr ""
+
+#: Controller/ProgramsController.php:52;73
+msgid "The program has been saved."
+msgstr ""
+
+#: Controller/ProgramsController.php:55;76
+msgid "The program could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ProgramsController.php:98
+msgid "The program has been deleted."
+msgstr ""
+
+#: Controller/ProgramsController.php:100
+msgid "The program could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ProjectsController.php:46;78;103
+msgid "Invalid project"
+msgstr ""
+
+#: Controller/ProjectsController.php:61;82
+msgid "The project has been saved."
+msgstr ""
+
+#: Controller/ProjectsController.php:64;85
+msgid "The project could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ProjectsController.php:107
+msgid "The project has been deleted."
+msgstr ""
+
+#: Controller/ProjectsController.php:109
+msgid "The project could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/SpinsController.php:37;71;98
+msgid "Invalid spin"
+msgstr ""
+
+#: Controller/SpinsController.php:52;75
+msgid "The spin has been saved."
+msgstr ""
+
+#: Controller/SpinsController.php:55;78
+msgid "The spin could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/SpinsController.php:102
+msgid "The spin has been deleted."
+msgstr ""
+
+#: Controller/SpinsController.php:104
+msgid "The spin could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/SubCategoriesController.php:37;69;94
+msgid "Invalid sub category"
+msgstr ""
+
+#: Controller/SubCategoriesController.php:52;73
+msgid "The sub category has been saved."
+msgstr ""
+
+#: Controller/SubCategoriesController.php:55;76
+msgid "The sub category could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/SubCategoriesController.php:98
+msgid "The sub category has been deleted."
+msgstr ""
+
+#: Controller/SubCategoriesController.php:100
+msgid "The sub category could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/TemperaturesController.php:37;71;98
+msgid "Invalid temperature"
+msgstr ""
+
+#: Controller/TemperaturesController.php:52;75
+msgid "The temperature has been saved."
+msgstr ""
+
+#: Controller/TemperaturesController.php:55;78
+msgid "The temperature could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/TemperaturesController.php:102
+msgid "The temperature has been deleted."
+msgstr ""
+
+#: Controller/TemperaturesController.php:104
+msgid "The temperature could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UnitsController.php:37;69;94
+msgid "Invalid unit"
+msgstr ""
+
+#: Controller/UnitsController.php:52;73
+msgid "The unit has been saved."
+msgstr ""
+
+#: Controller/UnitsController.php:55;76
+msgid "The unit could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UnitsController.php:98
+msgid "The unit has been deleted."
+msgstr ""
+
+#: Controller/UnitsController.php:100
+msgid "The unit could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:29
+msgid "Your username or password was incorrect."
+msgstr ""
+
+#: Controller/UsersController.php:57;91;118
+msgid "Invalid user"
+msgstr ""
+
+#: Controller/UsersController.php:72;95
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:75;98
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:122
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:124
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/WashingMachinesController.php:37;75;106
+msgid "Invalid washing machine"
+msgstr ""
+
+#: Controller/WashingMachinesController.php:52;79
+msgid "The washing machine has been saved."
+msgstr ""
+
+#: Controller/WashingMachinesController.php:55;82
+msgid "The washing machine could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/WashingMachinesController.php:110
+msgid "The washing machine has been deleted."
+msgstr ""
+
+#: Controller/WashingMachinesController.php:112
+msgid "The washing machine could not be deleted. Please, try again."
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:80
+msgid "Plugin to process"
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:83
+msgid "Better manage, and easily synchronize you application's ACO tree"
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:88
+msgid "Add new ACOs for new controllers and actions. Does not remove nodes from the ACO table."
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:93
+msgid "Perform a full sync on the ACO table.Will create new ACOs or missing controllers and actions.Will also remove orphaned entries that no longer have a matching controller/action"
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:97
+msgid "Verify the tree structure of either your Aco or Aro Trees"
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:102
+msgid "The type of tree to verify"
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:108
+msgid "Recover a corrupted Tree"
+msgstr ""
+
+#: Plugin/AclExtras/Console/Command/AclExtrasShell.php:113
+msgid "The type of tree to recover"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:123
+msgid "<error>Plugin %s not found or not activated</error>"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:136
+msgid "<success>Aco Update Complete</success>"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:181
+msgid "Deleted %s and all children"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:222
+msgid "Created Aco node: <success>%s</success>"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:275
+msgid "Unable to get methods for \"%s\""
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:296
+msgid "Deleted Aco node: <warning>%s</warning>"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:315
+msgid "<success>Tree is valid and strong</success>"
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:333
+msgid "Tree has been recovered, or tree did not need recovery."
+msgstr ""
+
+#: Plugin/AclExtras/Lib/AclExtras.php:335
+msgid "<error>Tree recovery failed.</error>"
+msgstr ""
+
+#: View/Additions/add.ctp:4
+msgid "Add Addition"
+msgstr ""
+
+#: View/Additions/add.ctp:10
+#: View/Additions/edit.ctp:11
+#: View/AdditionsWashingMachines/add.ctp:10
+#: View/AdditionsWashingMachines/edit.ctp:11
+#: View/BankTypes/add.ctp:9
+#: View/BankTypes/edit.ctp:10
+#: View/Banks/add.ctp:44
+#: View/Banks/edit.ctp:45
+#: View/Categories/add.ctp:9
+#: View/Categories/edit.ctp:10
+#: View/Costs/add.ctp:12
+#: View/Costs/edit.ctp:13
+#: View/Groups/add.ctp:9
+#: View/Groups/edit.ctp:10
+#: View/Helper/TileHelper.php:425
+#: View/Incomes/add.ctp:12
+#: View/Incomes/edit.ctp:13
+#: View/Programs/add.ctp:9
+#: View/Programs/edit.ctp:10
+#: View/Projects/add.ctp:9
+#: View/Projects/edit.ctp:10
+#: View/Spins/add.ctp:10
+#: View/Spins/edit.ctp:11
+#: View/SubCategories/add.ctp:9
+#: View/SubCategories/edit.ctp:10
+#: View/Temperatures/add.ctp:10
+#: View/Temperatures/edit.ctp:11
+#: View/Units/add.ctp:9
+#: View/Units/edit.ctp:10
+#: View/Users/add.ctp:11
+#: View/Users/edit.ctp:12
+#: View/WashingMachines/add.ctp:15
+#: View/WashingMachines/edit.ctp:16
+msgid "Submit"
+msgstr ""
+
+#: View/Additions/add.ctp:13
+#: View/Additions/edit.ctp:14
+#: View/Additions/index.ctp:9;40
+#: View/Additions/view.ctp:27;51
+#: View/AdditionsWashingMachines/add.ctp:13
+#: View/AdditionsWashingMachines/edit.ctp:14
+#: View/AdditionsWashingMachines/index.ctp:8;38
+#: View/AdditionsWashingMachines/view.ctp:22
+#: View/BankTypes/add.ctp:12
+#: View/BankTypes/edit.ctp:13
+#: View/BankTypes/index.ctp:9;40
+#: View/BankTypes/view.ctp:27;49
+#: View/Banks/add.ctp:47
+#: View/Banks/edit.ctp:48
+#: View/Banks/index.ctp:45;91
+#: View/Banks/view.ctp:87
+#: View/Categories/add.ctp:12
+#: View/Categories/edit.ctp:13
+#: View/Categories/index.ctp:7;36
+#: View/Categories/view.ctp:17;36
+#: View/Costs/add.ctp:15
+#: View/Costs/edit.ctp:16
+#: View/Costs/index.ctp:35;72
+#: View/Costs/view.ctp:32
+#: View/Groups/add.ctp:12
+#: View/Groups/edit.ctp:13
+#: View/Groups/index.ctp:9;40
+#: View/Groups/view.ctp:27;48
+#: View/Incomes/add.ctp:15
+#: View/Incomes/edit.ctp:16
+#: View/Incomes/index.ctp:10;46
+#: View/Incomes/view.ctp:32
+#: View/Programs/add.ctp:12
+#: View/Programs/edit.ctp:13
+#: View/Programs/index.ctp:9;40
+#: View/Programs/view.ctp:27;51
+#: View/Projects/add.ctp:12
+#: View/Projects/edit.ctp:13
+#: View/Projects/view.ctp:27
+#: View/Spins/add.ctp:13
+#: View/Spins/edit.ctp:14
+#: View/Spins/index.ctp:10;44
+#: View/Spins/view.ctp:32;58
+#: View/SubCategories/add.ctp:12
+#: View/SubCategories/edit.ctp:13
+#: View/SubCategories/index.ctp:7;36
+#: View/SubCategories/view.ctp:17;37
+#: View/Temperatures/add.ctp:13
+#: View/Temperatures/edit.ctp:14
+#: View/Temperatures/index.ctp:10;44
+#: View/Temperatures/view.ctp:32;58
+#: View/Units/add.ctp:12
+#: View/Units/edit.ctp:13
+#: View/Units/index.ctp:9;40
+#: View/Units/view.ctp:27;51;86;125
+#: View/Users/add.ctp:14
+#: View/Users/edit.ctp:15
+#: View/Users/index.ctp:11;46
+#: View/Users/view.ctp:37
+#: View/WashingMachines/add.ctp:18
+#: View/WashingMachines/edit.ctp:19
+#: View/WashingMachines/index.ctp:14;58
+#: View/WashingMachines/view.ctp:52;79
+msgid "Actions"
+msgstr ""
+
+#: View/Additions/add.ctp:16
+#: View/Additions/edit.ctp:18
+#: View/Additions/view.ctp:31
+#: View/WashingMachines/add.ctp:30
+#: View/WashingMachines/edit.ctp:32
+#: View/WashingMachines/index.ctp:69
+#: View/WashingMachines/view.ctp:66
+msgid "List Additions"
+msgstr ""
+
+#: View/Additions/add.ctp:17
+#: View/Additions/edit.ctp:19
+#: View/Additions/index.ctp:43
+#: View/Additions/view.ctp:33
+#: View/Programs/add.ctp:16
+#: View/Programs/edit.ctp:18
+#: View/Programs/index.ctp:43
+#: View/Programs/view.ctp:33
+#: View/Spins/add.ctp:19
+#: View/Spins/edit.ctp:21
+#: View/Spins/index.ctp:49
+#: View/Spins/view.ctp:40
+#: View/Temperatures/add.ctp:19
+#: View/Temperatures/edit.ctp:21
+#: View/Temperatures/index.ctp:49
+#: View/Temperatures/view.ctp:40
+#: View/Units/add.ctp:20
+#: View/Units/edit.ctp:22
+#: View/Units/index.ctp:47
+#: View/Units/view.ctp:37
+#: View/WashingMachines/add.ctp:21
+#: View/WashingMachines/edit.ctp:23
+#: View/WashingMachines/view.ctp:56
+msgid "List Washing Machines"
+msgstr ""
+
+#: View/Additions/add.ctp:18
+#: View/Additions/edit.ctp:20
+#: View/Additions/index.ctp:44
+#: View/Additions/view.ctp:34;76
+#: View/Programs/add.ctp:17
+#: View/Programs/edit.ctp:19
+#: View/Programs/index.ctp:44
+#: View/Programs/view.ctp:34;76
+#: View/Spins/add.ctp:20
+#: View/Spins/edit.ctp:22
+#: View/Spins/index.ctp:50
+#: View/Spins/view.ctp:41;83
+#: View/Temperatures/add.ctp:20
+#: View/Temperatures/edit.ctp:22
+#: View/Temperatures/index.ctp:50
+#: View/Temperatures/view.ctp:41;83
+#: View/Units/add.ctp:21
+#: View/Units/edit.ctp:23
+#: View/Units/index.ctp:48
+#: View/Units/view.ctp:38;150
+#: View/WashingMachines/index.ctp:60
+#: View/WashingMachines/view.ctp:57
+msgid "New Washing Machine"
+msgstr ""
+
+#: View/Additions/edit.ctp:4
+#: View/Additions/view.ctp:29
+msgid "Edit Addition"
+msgstr ""
+
+#: View/Additions/edit.ctp:17
+#: View/Additions/index.ctp:20
+#: View/Additions/view.ctp:67
+#: View/AdditionsWashingMachines/edit.ctp:17
+#: View/AdditionsWashingMachines/index.ctp:18
+#: View/BankTypes/edit.ctp:16
+#: View/BankTypes/index.ctp:20
+#: View/BankTypes/view.ctp:63
+#: View/Banks/edit.ctp:51
+#: View/Banks/index.ctp:71
+#: View/Categories/edit.ctp:16
+#: View/Categories/index.ctp:16
+#: View/Categories/view.ctp:47
+#: View/Costs/edit.ctp:19
+#: View/Costs/index.ctp:51
+#: View/Groups/edit.ctp:16
+#: View/Groups/index.ctp:20
+#: View/Groups/view.ctp:61
+#: View/Incomes/edit.ctp:19
+#: View/Incomes/index.ctp:26
+#: View/Programs/edit.ctp:16
+#: View/Programs/index.ctp:20
+#: View/Programs/view.ctp:67
+#: View/Projects/edit.ctp:16
+#: View/Spins/edit.ctp:17
+#: View/Spins/index.ctp:24
+#: View/Spins/view.ctp:74
+#: View/SubCategories/edit.ctp:16
+#: View/SubCategories/index.ctp:16
+#: View/SubCategories/view.ctp:49
+#: View/Temperatures/edit.ctp:17
+#: View/Temperatures/index.ctp:24
+#: View/Temperatures/view.ctp:74
+#: View/Units/edit.ctp:16
+#: View/Units/index.ctp:20
+#: View/Units/view.ctp:63;98;141
+#: View/Users/edit.ctp:18
+#: View/Users/index.ctp:26
+#: View/WashingMachines/edit.ctp:22
+#: View/WashingMachines/index.ctp:38
+#: View/WashingMachines/view.ctp:90
+msgid "Delete"
+msgstr ""
+
+#: View/Additions/edit.ctp:17
+#: View/Additions/index.ctp:20
+#: View/Additions/view.ctp:30;67
+#: View/AdditionsWashingMachines/edit.ctp:17
+#: View/AdditionsWashingMachines/index.ctp:18
+#: View/AdditionsWashingMachines/view.ctp:25
+#: View/BankTypes/edit.ctp:16
+#: View/BankTypes/index.ctp:20
+#: View/BankTypes/view.ctp:30;63
+#: View/Banks/edit.ctp:51
+#: View/Banks/index.ctp:71
+#: View/Banks/view.ctp:90
+#: View/Categories/edit.ctp:16
+#: View/Categories/index.ctp:16
+#: View/Categories/view.ctp:20;47
+#: View/Costs/edit.ctp:19
+#: View/Costs/index.ctp:51
+#: View/Costs/view.ctp:35
+#: View/Groups/edit.ctp:16
+#: View/Groups/index.ctp:20
+#: View/Groups/view.ctp:30;61
+#: View/Incomes/edit.ctp:19
+#: View/Incomes/index.ctp:26
+#: View/Incomes/view.ctp:35
+#: View/Programs/edit.ctp:16
+#: View/Programs/index.ctp:20
+#: View/Programs/view.ctp:30;67
+#: View/Projects/edit.ctp:16
+#: View/Projects/view.ctp:30
+#: View/Spins/edit.ctp:17
+#: View/Spins/index.ctp:24
+#: View/Spins/view.ctp:35;74
+#: View/SubCategories/edit.ctp:16
+#: View/SubCategories/index.ctp:16
+#: View/SubCategories/view.ctp:20;49
+#: View/Temperatures/edit.ctp:17
+#: View/Temperatures/index.ctp:24
+#: View/Temperatures/view.ctp:35;74
+#: View/Units/edit.ctp:16
+#: View/Units/index.ctp:20
+#: View/Units/view.ctp:30;63;98;141
+#: View/Users/edit.ctp:18
+#: View/Users/index.ctp:26
+#: View/Users/view.ctp:40
+#: View/WashingMachines/edit.ctp:22
+#: View/WashingMachines/index.ctp:38
+#: View/WashingMachines/view.ctp:55;90
+msgid "Are you sure you want to delete # %s?"
+msgstr ""
+
+#: View/Additions/index.ctp:2
+msgid "Additions"
+msgstr ""
+
+#: View/Additions/index.ctp:18
+#: View/Additions/view.ctp:65
+#: View/AdditionsWashingMachines/index.ctp:16
+#: View/BankTypes/index.ctp:18
+#: View/BankTypes/view.ctp:61
+#: View/Banks/index.ctp:69
+#: View/Categories/index.ctp:14
+#: View/Categories/view.ctp:45
+#: View/Costs/index.ctp:49
+#: View/Groups/index.ctp:18
+#: View/Groups/view.ctp:59
+#: View/Helper/TileHelper.php:295
+#: View/Incomes/index.ctp:24
+#: View/Programs/index.ctp:18
+#: View/Programs/view.ctp:65
+#: View/Spins/index.ctp:22
+#: View/Spins/view.ctp:72
+#: View/SubCategories/index.ctp:14
+#: View/SubCategories/view.ctp:47
+#: View/Temperatures/index.ctp:22
+#: View/Temperatures/view.ctp:72
+#: View/Units/index.ctp:18
+#: View/Units/view.ctp:61;96;139
+#: View/Users/index.ctp:24
+#: View/WashingMachines/index.ctp:36
+#: View/WashingMachines/view.ctp:88
+msgid "View"
+msgstr ""
+
+#: View/Additions/index.ctp:19
+#: View/Additions/view.ctp:66
+#: View/AdditionsWashingMachines/index.ctp:17
+#: View/BankTypes/index.ctp:19
+#: View/BankTypes/view.ctp:62
+#: View/Banks/index.ctp:70
+#: View/Categories/index.ctp:15
+#: View/Categories/view.ctp:46
+#: View/Costs/index.ctp:50
+#: View/Groups/index.ctp:19
+#: View/Groups/view.ctp:60
+#: View/Helper/TileHelper.php:299
+#: View/Incomes/index.ctp:25
+#: View/Programs/index.ctp:19
+#: View/Programs/view.ctp:66
+#: View/Spins/index.ctp:23
+#: View/Spins/view.ctp:73
+#: View/SubCategories/index.ctp:15
+#: View/SubCategories/view.ctp:48
+#: View/Temperatures/index.ctp:23
+#: View/Temperatures/view.ctp:73
+#: View/Units/index.ctp:19
+#: View/Units/view.ctp:62;97;140
+#: View/Users/index.ctp:25
+#: View/WashingMachines/index.ctp:37
+#: View/WashingMachines/view.ctp:89
+msgid "Edit"
+msgstr ""
+
+#: View/Additions/index.ctp:28
+#: View/AdditionsWashingMachines/index.ctp:26
+#: View/BankTypes/index.ctp:28
+#: View/Banks/index.ctp:79
+#: View/Categories/index.ctp:24
+#: View/Costs/index.ctp:60
+#: View/Groups/index.ctp:28
+#: View/Incomes/index.ctp:34
+#: View/Programs/index.ctp:28
+#: View/Spins/index.ctp:32
+#: View/SubCategories/index.ctp:24
+#: View/Temperatures/index.ctp:32
+#: View/Units/index.ctp:28
+#: View/Users/index.ctp:34
+#: View/WashingMachines/index.ctp:46
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr ""
+
+#: View/Additions/index.ctp:33
+#: View/AdditionsWashingMachines/index.ctp:31
+#: View/BankTypes/index.ctp:33
+#: View/Banks/index.ctp:84
+#: View/Categories/index.ctp:29
+#: View/Costs/index.ctp:65
+#: View/Groups/index.ctp:33
+#: View/Incomes/index.ctp:39
+#: View/Programs/index.ctp:33
+#: View/Spins/index.ctp:37
+#: View/SubCategories/index.ctp:29
+#: View/Temperatures/index.ctp:37
+#: View/Units/index.ctp:33
+#: View/Users/index.ctp:39
+#: View/WashingMachines/index.ctp:51
+msgid "previous"
+msgstr ""
+
+#: View/Additions/index.ctp:35
+#: View/AdditionsWashingMachines/index.ctp:33
+#: View/BankTypes/index.ctp:35
+#: View/Banks/index.ctp:86
+#: View/Categories/index.ctp:31
+#: View/Costs/index.ctp:67
+#: View/Groups/index.ctp:35
+#: View/Incomes/index.ctp:41
+#: View/Programs/index.ctp:35
+#: View/Spins/index.ctp:39
+#: View/SubCategories/index.ctp:31
+#: View/Temperatures/index.ctp:39
+#: View/Units/index.ctp:35
+#: View/Users/index.ctp:41
+#: View/WashingMachines/index.ctp:53
+msgid "next"
+msgstr ""
+
+#: View/Additions/index.ctp:42
+#: View/Additions/view.ctp:32
+#: View/WashingMachines/add.ctp:31
+#: View/WashingMachines/edit.ctp:33
+#: View/WashingMachines/index.ctp:70
+#: View/WashingMachines/view.ctp:67;99
+msgid "New Addition"
+msgstr ""
+
+#: View/Additions/view.ctp:2;9
+#: View/WashingMachines/view.ctp:76
+msgid "Addition"
+msgstr ""
+
+#: View/Additions/view.ctp:4;42
+#: View/AdditionsWashingMachines/view.ctp:4
+#: View/BankTypes/view.ctp:4;42
+#: View/Banks/view.ctp:4
+#: View/Categories/view.ctp:4;32
+#: View/Costs/view.ctp:4
+#: View/Groups/view.ctp:4;42
+#: View/Incomes/view.ctp:4
+#: View/Programs/view.ctp:4;42
+#: View/Projects/view.ctp:4
+#: View/Spins/view.ctp:4;49
+#: View/SubCategories/view.ctp:4;32
+#: View/Temperatures/view.ctp:4;49
+#: View/Units/view.ctp:4;46;81;116
+#: View/Users/view.ctp:4
+#: View/WashingMachines/view.ctp:4;75
+msgid "Id"
+msgstr ""
+
+#: View/Additions/view.ctp:14;49
+#: View/BankTypes/view.ctp:14;46
+#: View/Banks/view.ctp:24
+#: View/Groups/view.ctp:14;46
+#: View/Programs/view.ctp:14;49
+#: View/Projects/view.ctp:14
+#: View/Spins/view.ctp:19;56
+#: View/Temperatures/view.ctp:19;56
+#: View/Units/view.ctp:14;49;84;123
+#: View/Users/view.ctp:24
+#: View/WashingMachines/view.ctp:39;77
+msgid "Created"
+msgstr ""
+
+#: View/Additions/view.ctp:19;50
+#: View/BankTypes/view.ctp:19;47
+#: View/Banks/view.ctp:29
+#: View/Groups/view.ctp:19;47
+#: View/Programs/view.ctp:19;50
+#: View/Projects/view.ctp:19
+#: View/Spins/view.ctp:24;57
+#: View/Temperatures/view.ctp:24;57
+#: View/Units/view.ctp:19;50;85;124
+#: View/Users/view.ctp:29
+#: View/WashingMachines/view.ctp:44;78
+msgid "Modified"
+msgstr ""
+
+#: View/Additions/view.ctp:30
+msgid "Delete Addition"
+msgstr ""
+
+#: View/Additions/view.ctp:38
+#: View/Programs/view.ctp:38
+#: View/Spins/view.ctp:45
+#: View/Temperatures/view.ctp:45
+#: View/Units/view.ctp:112
+msgid "Related Washing Machines"
+msgstr ""
+
+#: View/Additions/view.ctp:43
+#: View/Programs/view.ctp:43
+#: View/Spins/view.ctp:50
+#: View/Temperatures/view.ctp:50
+#: View/Units/view.ctp:117
+msgid "Program Id"
+msgstr ""
+
+#: View/Additions/view.ctp:44
+#: View/Programs/view.ctp:44
+#: View/Spins/view.ctp:51
+#: View/Temperatures/view.ctp:51
+#: View/Units/view.ctp:118
+msgid "Temperature Id"
+msgstr ""
+
+#: View/Additions/view.ctp:45
+#: View/Programs/view.ctp:45
+#: View/Spins/view.ctp:52
+#: View/Temperatures/view.ctp:52
+#: View/Units/view.ctp:119
+msgid "Spin Id"
+msgstr ""
+
+#: View/Additions/view.ctp:46
+#: View/Programs/view.ctp:46
+#: View/Spins/view.ctp:53
+#: View/Temperatures/view.ctp:53
+#: View/Units/view.ctp:120
+#: View/WashingMachines/view.ctp:24
+msgid "Power Consumtion"
+msgstr ""
+
+#: View/Additions/view.ctp:47
+#: View/Programs/view.ctp:47
+#: View/Spins/view.ctp:54
+#: View/Temperatures/view.ctp:54
+#: View/Units/view.ctp:48;83;121
+msgid "Unit Id"
+msgstr ""
+
+#: View/Additions/view.ctp:48
+#: View/Programs/view.ctp:48
+#: View/Spins/view.ctp:55
+#: View/Temperatures/view.ctp:55
+#: View/Units/view.ctp:122
+#: View/WashingMachines/view.ctp:34
+msgid "Duration"
+msgstr ""
+
+#: View/AdditionsWashingMachines/add.ctp:4
+msgid "Add Additions Washing Machine"
+msgstr ""
+
+#: View/AdditionsWashingMachines/add.ctp:16
+#: View/AdditionsWashingMachines/edit.ctp:18
+#: View/AdditionsWashingMachines/view.ctp:26
+msgid "List Additions Washing Machines"
+msgstr ""
+
+#: View/AdditionsWashingMachines/edit.ctp:4
+#: View/AdditionsWashingMachines/view.ctp:24
+msgid "Edit Additions Washing Machine"
+msgstr ""
+
+#: View/AdditionsWashingMachines/index.ctp:2
+msgid "Additions Washing Machines"
+msgstr ""
+
+#: View/AdditionsWashingMachines/index.ctp:40
+#: View/AdditionsWashingMachines/view.ctp:27
+msgid "New Additions Washing Machine"
+msgstr ""
+
+#: View/AdditionsWashingMachines/view.ctp:2
+msgid "Additions Washing Machine"
+msgstr ""
+
+#: View/AdditionsWashingMachines/view.ctp:9
+msgid "Addition Id"
+msgstr ""
+
+#: View/AdditionsWashingMachines/view.ctp:14
+msgid "Washing Machine Id"
+msgstr ""
+
+#: View/AdditionsWashingMachines/view.ctp:25
+msgid "Delete Additions Washing Machine"
+msgstr ""
+
+#: View/BankTypes/add.ctp:4
+msgid "Add Bank Type"
+msgstr ""
+
+#: View/BankTypes/add.ctp:15
+#: View/BankTypes/edit.ctp:17
+#: View/BankTypes/view.ctp:31
+#: View/Banks/add.ctp:51
+#: View/Banks/edit.ctp:53
+#: View/Banks/index.ctp:94
+#: View/Banks/view.ctp:93
+msgid "List Bank Types"
+msgstr ""
+
+#: View/BankTypes/add.ctp:16
+#: View/BankTypes/edit.ctp:18
+#: View/BankTypes/index.ctp:43
+#: View/BankTypes/view.ctp:33
+#: View/Banks/add.ctp:50
+#: View/Banks/edit.ctp:52
+#: View/Banks/view.ctp:91
+msgid "List Banks"
+msgstr ""
+
+#: View/BankTypes/add.ctp:17
+#: View/BankTypes/edit.ctp:19
+#: View/BankTypes/index.ctp:44
+#: View/BankTypes/view.ctp:34;72
+#: View/Banks/index.ctp:93
+#: View/Banks/view.ctp:92
+msgid "New Bank"
+msgstr ""
+
+#: View/BankTypes/edit.ctp:4
+#: View/BankTypes/view.ctp:29
+msgid "Edit Bank Type"
+msgstr ""
+
+#: View/BankTypes/index.ctp:2
+msgid "Bank Types"
+msgstr ""
+
+#: View/BankTypes/index.ctp:42
+#: View/BankTypes/view.ctp:32
+#: View/Banks/add.ctp:52
+#: View/Banks/edit.ctp:54
+#: View/Banks/index.ctp:95
+#: View/Banks/view.ctp:94
+msgid "New Bank Type"
+msgstr ""
+
+#: View/BankTypes/view.ctp:2
+#: View/Banks/view.ctp:34
+msgid "Bank Type"
+msgstr ""
+
+#: View/BankTypes/view.ctp:9
+msgid "Type"
+msgstr ""
+
+#: View/BankTypes/view.ctp:30
+msgid "Delete Bank Type"
+msgstr ""
+
+#: View/BankTypes/view.ctp:38
+msgid "Related Banks"
+msgstr ""
+
+#: View/BankTypes/view.ctp:43
+#: View/Banks/view.ctp:9
+#: View/Categories/view.ctp:9;33
+#: View/Costs/view.ctp:9
+#: View/Groups/view.ctp:9
+#: View/Incomes/view.ctp:9
+#: View/Programs/view.ctp:9
+#: View/Projects/view.ctp:9
+#: View/SubCategories/view.ctp:9;33
+msgid "Name"
+msgstr ""
+
+#: View/BankTypes/view.ctp:44
+#: View/Banks/view.ctp:14
+msgid "Iban"
+msgstr ""
+
+#: View/BankTypes/view.ctp:45
+#: View/Banks/view.ctp:19
+msgid "Bic"
+msgstr ""
+
+#: View/BankTypes/view.ctp:48
+msgid "Bank Type Id"
+msgstr ""
+
+#: View/Banks/add.ctp:27
+msgid "Add Bank"
+msgstr ""
+
+#: View/Banks/edit.ctp:27
+#: View/Banks/view.ctp:89
+msgid "Edit Bank"
+msgstr ""
+
+#: View/Banks/index.ctp:26
+msgid "Banks"
+msgstr ""
+
+#: View/Banks/view.ctp:2
+msgid "Bank"
+msgstr ""
+
+#: View/Banks/view.ctp:39
+msgid "Rate Of Interest"
+msgstr ""
+
+#: View/Banks/view.ctp:44
+msgid "Rate Available"
+msgstr ""
+
+#: View/Banks/view.ctp:49
+msgid "Exemption Order For Capital Gains"
+msgstr ""
+
+#: View/Banks/view.ctp:54
+msgid "Exemption Order Available"
+msgstr ""
+
+#: View/Banks/view.ctp:59
+msgid "Exemption Order Used"
+msgstr ""
+
+#: View/Banks/view.ctp:64
+msgid "Exemption Order Proof"
+msgstr ""
+
+#: View/Banks/view.ctp:69
+msgid "Bank Balance"
+msgstr ""
+
+#: View/Banks/view.ctp:74
+msgid "Bank Balance Proof"
+msgstr ""
+
+#: View/Banks/view.ctp:79
+msgid "Product"
+msgstr ""
+
+#: View/Banks/view.ctp:90
+msgid "Delete Bank"
+msgstr ""
+
+#: View/Categories/add.ctp:4
+msgid "Add Category"
+msgstr ""
+
+#: View/Categories/add.ctp:15
+#: View/Categories/edit.ctp:17
+#: View/Categories/view.ctp:21
+#: View/Costs/add.ctp:19
+#: View/Costs/edit.ctp:21
+#: View/Costs/index.ctp:75
+#: View/Costs/view.ctp:38
+#: View/Incomes/add.ctp:19
+#: View/Incomes/edit.ctp:21
+#: View/Incomes/index.ctp:49
+#: View/Incomes/view.ctp:38
+msgid "List Categories"
+msgstr ""
+
+#: View/Categories/add.ctp:16
+#: View/Categories/edit.ctp:18
+#: View/Categories/index.ctp:39
+#: View/Categories/view.ctp:23
+#: View/Costs/add.ctp:18
+#: View/Costs/edit.ctp:20
+#: View/Costs/view.ctp:36
+#: View/SubCategories/add.ctp:16
+#: View/SubCategories/edit.ctp:18
+#: View/SubCategories/index.ctp:39
+#: View/SubCategories/view.ctp:23
+msgid "List Costs"
+msgstr ""
+
+#: View/Categories/add.ctp:17
+#: View/Categories/edit.ctp:19
+#: View/Categories/index.ctp:40
+#: View/Categories/view.ctp:24;56
+#: View/Costs/index.ctp:74
+#: View/Costs/view.ctp:37
+#: View/SubCategories/add.ctp:17
+#: View/SubCategories/edit.ctp:19
+#: View/SubCategories/index.ctp:40
+#: View/SubCategories/view.ctp:24;58
+msgid "New Cost"
+msgstr ""
+
+#: View/Categories/edit.ctp:4
+#: View/Categories/view.ctp:19
+msgid "Edit Category"
+msgstr ""
+
+#: View/Categories/index.ctp:2
+msgid "Categories"
+msgstr ""
+
+#: View/Categories/index.ctp:38
+#: View/Categories/view.ctp:22
+#: View/Costs/add.ctp:20
+#: View/Costs/edit.ctp:22
+#: View/Costs/index.ctp:76
+#: View/Costs/view.ctp:39
+#: View/Incomes/add.ctp:20
+#: View/Incomes/edit.ctp:22
+#: View/Incomes/index.ctp:50
+#: View/Incomes/view.ctp:39
+msgid "New Category"
+msgstr ""
+
+#: View/Categories/view.ctp:2
+#: View/Costs/view.ctp:19
+#: View/Incomes/view.ctp:19
+msgid "Category"
+msgstr ""
+
+#: View/Categories/view.ctp:20
+msgid "Delete Category"
+msgstr ""
+
+#: View/Categories/view.ctp:28
+#: View/SubCategories/view.ctp:28
+msgid "Related Costs"
+msgstr ""
+
+#: View/Categories/view.ctp:34
+#: View/Costs/view.ctp:14
+#: View/Incomes/view.ctp:14
+#: View/SubCategories/view.ctp:34
+msgid "Price"
+msgstr ""
+
+#: View/Categories/view.ctp:35
+#: View/SubCategories/view.ctp:35
+msgid "Category Id"
+msgstr ""
+
+#: View/Costs/add.ctp:4
+msgid "Add Cost"
+msgstr ""
+
+#: View/Costs/edit.ctp:4
+#: View/Costs/view.ctp:34
+msgid "Edit Cost"
+msgstr ""
+
+#: View/Costs/index.ctp:26
+msgid "Costs"
+msgstr ""
+
+#: View/Costs/view.ctp:2
+msgid "Cost"
+msgstr ""
+
+#: View/Costs/view.ctp:24
+#: View/SubCategories/view.ctp:36
+msgid "Sub Category Id"
+msgstr ""
+
+#: View/Costs/view.ctp:35
+msgid "Delete Cost"
+msgstr ""
+
+#: View/Groups/add.ctp:4
+msgid "Add Group"
+msgstr ""
+
+#: View/Groups/add.ctp:15
+#: View/Groups/edit.ctp:17
+#: View/Groups/view.ctp:31
+#: View/Users/add.ctp:18
+#: View/Users/edit.ctp:20
+#: View/Users/index.ctp:49
+#: View/Users/view.ctp:43
+msgid "List Groups"
+msgstr ""
+
+#: View/Groups/add.ctp:16
+#: View/Groups/edit.ctp:18
+#: View/Groups/index.ctp:43
+#: View/Groups/view.ctp:33
+#: View/Users/add.ctp:17
+#: View/Users/edit.ctp:19
+#: View/Users/view.ctp:41
+msgid "List Users"
+msgstr ""
+
+#: View/Groups/add.ctp:17
+#: View/Groups/edit.ctp:19
+#: View/Groups/index.ctp:44
+#: View/Groups/view.ctp:34;70
+#: View/Users/index.ctp:48
+#: View/Users/view.ctp:42
+msgid "New User"
+msgstr ""
+
+#: View/Groups/edit.ctp:4
+#: View/Groups/view.ctp:29
+msgid "Edit Group"
+msgstr ""
+
+#: View/Groups/index.ctp:2
+msgid "Groups"
+msgstr ""
+
+#: View/Groups/index.ctp:42
+#: View/Groups/view.ctp:32
+#: View/Users/add.ctp:19
+#: View/Users/edit.ctp:21
+#: View/Users/index.ctp:50
+#: View/Users/view.ctp:44
+msgid "New Group"
+msgstr ""
+
+#: View/Groups/view.ctp:2
+#: View/Users/view.ctp:19
+msgid "Group"
+msgstr ""
+
+#: View/Groups/view.ctp:30
+msgid "Delete Group"
+msgstr ""
+
+#: View/Groups/view.ctp:38
+msgid "Related Users"
+msgstr ""
+
+#: View/Groups/view.ctp:43
+#: View/Users/view.ctp:9
+msgid "Username"
+msgstr ""
+
+#: View/Groups/view.ctp:44
+#: View/Users/view.ctp:14
+msgid "Password"
+msgstr ""
+
+#: View/Groups/view.ctp:45
+msgid "Group Id"
+msgstr ""
+
+#: View/Helper/TileHelper.php:60
+msgid "Geldanlagen"
+msgstr ""
+
+#: View/Helper/TileHelper.php:64
+msgid "Kosten der Hochzeit"
+msgstr ""
+
+#: View/Helper/TileHelper.php:68
+msgid "Joomla Update"
+msgstr ""
+
+#: View/Helper/TileHelper.php:72
+msgid "Filme"
+msgstr ""
+
+#: View/Helper/TileHelper.php:76
+msgid "Uebersicht"
+msgstr ""
+
+#: View/Helper/TileHelper.php:80
+msgid "Strom"
+msgstr ""
+
+#: View/Helper/TileHelper.php:84
+msgid "Projekte"
+msgstr ""
+
+#: View/Helper/TileHelper.php:88
+msgid "Benutzerverwaltung"
+msgstr ""
+
+#: View/Helper/TileHelper.php:92
+msgid "Anmelden"
+msgstr ""
+
+#: View/Helper/TileHelper.php:291;580
+msgid "Add"
+msgstr ""
+
+#: View/Helper/TileHelper.php:303
+msgid "Edit Details"
+msgstr ""
+
+#: View/Helper/TileHelper.php:341
+msgid "Assign"
+msgstr ""
+
+#: View/Helper/TileHelper.php:581
+msgid "Schedule"
+msgstr ""
+
+#: View/Helper/TileHelper.php:582
+msgid "Edit_details"
+msgstr ""
+
+#: View/Helper/TileHelper.php:583
+msgid "Tour_schedule"
+msgstr ""
+
+#: View/Helper/TileHelper.php:585
+msgid "username"
+msgstr ""
+
+#: View/Helper/TileHelper.php:586
+msgid "password"
+msgstr ""
+
+#: View/Helper/TileHelper.php:587
+msgid "first_name"
+msgstr ""
+
+#: View/Helper/TileHelper.php:588
+msgid "last_name"
+msgstr ""
+
+#: View/Helper/TileHelper.php:589
+msgid "employee_number"
+msgstr ""
+
+#: View/Helper/TileHelper.php:590
+msgid "email"
+msgstr ""
+
+#: View/Helper/TileHelper.php:591;603
+msgid "phone"
+msgstr ""
+
+#: View/Helper/TileHelper.php:592
+msgid "cell"
+msgstr ""
+
+#: View/Helper/TileHelper.php:593;604
+msgid "fax"
+msgstr ""
+
+#: View/Helper/TileHelper.php:594
+msgid "group_id"
+msgstr ""
+
+#: View/Helper/TileHelper.php:595
+msgid "company_id"
+msgstr ""
+
+#: View/Helper/TileHelper.php:596
+msgid "hourly_rate"
+msgstr ""
+
+#: View/Helper/TileHelper.php:598
+msgid "name"
+msgstr ""
+
+#: View/Helper/TileHelper.php:599
+msgid "address"
+msgstr ""
+
+#: View/Helper/TileHelper.php:600
+msgid "zip"
+msgstr ""
+
+#: View/Helper/TileHelper.php:601
+msgid "city"
+msgstr ""
+
+#: View/Helper/TileHelper.php:602
+msgid "country"
+msgstr ""
+
+#: View/Helper/TileHelper.php:605
+msgid "number_of_employees"
+msgstr ""
+
+#: View/Helper/TileHelper.php:606
+msgid "number_of_visitors"
+msgstr ""
+
+#: View/Helper/TileHelper.php:607
+msgid "number_of_bathrooms"
+msgstr ""
+
+#: View/Helper/TileHelper.php:608
+msgid "note"
+msgstr ""
+
+#: View/Incomes/add.ctp:4
+msgid "Add Income"
+msgstr ""
+
+#: View/Incomes/add.ctp:18
+#: View/Incomes/edit.ctp:20
+#: View/Incomes/view.ctp:36
+msgid "List Incomes"
+msgstr ""
+
+#: View/Incomes/add.ctp:21
+#: View/Incomes/edit.ctp:23
+#: View/Incomes/index.ctp:51
+#: View/Incomes/view.ctp:40
+#: View/SubCategories/add.ctp:15
+#: View/SubCategories/edit.ctp:17
+#: View/SubCategories/view.ctp:21
+msgid "List Sub Categories"
+msgstr ""
+
+#: View/Incomes/add.ctp:22
+#: View/Incomes/edit.ctp:24
+#: View/Incomes/index.ctp:52
+#: View/Incomes/view.ctp:41
+#: View/SubCategories/index.ctp:38
+#: View/SubCategories/view.ctp:22
+msgid "New Sub Category"
+msgstr ""
+
+#: View/Incomes/edit.ctp:4
+#: View/Incomes/view.ctp:34
+msgid "Edit Income"
+msgstr ""
+
+#: View/Incomes/index.ctp:2
+msgid "Incomes"
+msgstr ""
+
+#: View/Incomes/index.ctp:48
+#: View/Incomes/view.ctp:37
+msgid "New Income"
+msgstr ""
+
+#: View/Incomes/view.ctp:2
+msgid "Income"
+msgstr ""
+
+#: View/Incomes/view.ctp:24
+#: View/SubCategories/view.ctp:2
+msgid "Sub Category"
+msgstr ""
+
+#: View/Incomes/view.ctp:35
+msgid "Delete Income"
+msgstr ""
+
+#: View/Programs/add.ctp:4
+msgid "Add Program"
+msgstr ""
+
+#: View/Programs/add.ctp:15
+#: View/Programs/edit.ctp:17
+#: View/Programs/view.ctp:31
+#: View/WashingMachines/add.ctp:22
+#: View/WashingMachines/edit.ctp:24
+#: View/WashingMachines/index.ctp:61
+#: View/WashingMachines/view.ctp:58
+msgid "List Programs"
+msgstr ""
+
+#: View/Programs/edit.ctp:4
+#: View/Programs/view.ctp:29
+msgid "Edit Program"
+msgstr ""
+
+#: View/Programs/index.ctp:2
+msgid "Programs"
+msgstr ""
+
+#: View/Programs/index.ctp:42
+#: View/Programs/view.ctp:32
+#: View/WashingMachines/add.ctp:23
+#: View/WashingMachines/edit.ctp:25
+#: View/WashingMachines/index.ctp:62
+#: View/WashingMachines/view.ctp:59
+msgid "New Program"
+msgstr ""
+
+#: View/Programs/view.ctp:2
+#: View/WashingMachines/view.ctp:9
+msgid "Program"
+msgstr ""
+
+#: View/Programs/view.ctp:30
+msgid "Delete Program"
+msgstr ""
+
+#: View/Projects/add.ctp:4
+msgid "Add Project"
+msgstr ""
+
+#: View/Projects/add.ctp:15
+#: View/Projects/edit.ctp:17
+#: View/Projects/view.ctp:31
+msgid "List Projects"
+msgstr ""
+
+#: View/Projects/edit.ctp:4
+#: View/Projects/view.ctp:29
+msgid "Edit Project"
+msgstr ""
+
+#: View/Projects/view.ctp:2
+msgid "Project"
+msgstr ""
+
+#: View/Projects/view.ctp:30
+msgid "Delete Project"
+msgstr ""
+
+#: View/Projects/view.ctp:32
+msgid "New Project"
+msgstr ""
+
+#: View/Spins/add.ctp:4
+msgid "Add Spin"
+msgstr ""
+
+#: View/Spins/add.ctp:16
+#: View/Spins/edit.ctp:18
+#: View/Spins/view.ctp:36
+#: View/Units/add.ctp:16
+#: View/Units/edit.ctp:18
+#: View/Units/index.ctp:43
+#: View/Units/view.ctp:33
+#: View/WashingMachines/add.ctp:26
+#: View/WashingMachines/edit.ctp:28
+#: View/WashingMachines/index.ctp:65
+#: View/WashingMachines/view.ctp:62
+msgid "List Spins"
+msgstr ""
+
+#: View/Spins/add.ctp:17
+#: View/Spins/edit.ctp:19
+#: View/Spins/index.ctp:47
+#: View/Spins/view.ctp:38
+#: View/Temperatures/add.ctp:17
+#: View/Temperatures/edit.ctp:19
+#: View/Temperatures/index.ctp:47
+#: View/Temperatures/view.ctp:38
+#: View/Units/add.ctp:15
+#: View/Units/edit.ctp:17
+#: View/Units/view.ctp:31
+#: View/WashingMachines/add.ctp:28
+#: View/WashingMachines/edit.ctp:30
+#: View/WashingMachines/index.ctp:67
+#: View/WashingMachines/view.ctp:64
+msgid "List Units"
+msgstr ""
+
+#: View/Spins/add.ctp:18
+#: View/Spins/edit.ctp:20
+#: View/Spins/index.ctp:48
+#: View/Spins/view.ctp:39
+#: View/Temperatures/add.ctp:18
+#: View/Temperatures/edit.ctp:20
+#: View/Temperatures/index.ctp:48
+#: View/Temperatures/view.ctp:39
+#: View/Units/index.ctp:42
+#: View/Units/view.ctp:32
+#: View/WashingMachines/add.ctp:29
+#: View/WashingMachines/edit.ctp:31
+#: View/WashingMachines/index.ctp:68
+#: View/WashingMachines/view.ctp:65
+msgid "New Unit"
+msgstr ""
+
+#: View/Spins/edit.ctp:4
+#: View/Spins/view.ctp:34
+msgid "Edit Spin"
+msgstr ""
+
+#: View/Spins/index.ctp:2
+msgid "Spins"
+msgstr ""
+
+#: View/Spins/index.ctp:46
+#: View/Spins/view.ctp:37
+#: View/Units/add.ctp:17
+#: View/Units/edit.ctp:19
+#: View/Units/index.ctp:44
+#: View/Units/view.ctp:34;72
+#: View/WashingMachines/add.ctp:27
+#: View/WashingMachines/edit.ctp:29
+#: View/WashingMachines/index.ctp:66
+#: View/WashingMachines/view.ctp:63
+msgid "New Spin"
+msgstr ""
+
+#: View/Spins/view.ctp:2
+#: View/WashingMachines/view.ctp:19
+msgid "Spin"
+msgstr ""
+
+#: View/Spins/view.ctp:9
+#: View/Temperatures/view.ctp:9
+#: View/Units/view.ctp:47;82
+msgid "Value"
+msgstr ""
+
+#: View/Spins/view.ctp:14
+#: View/Temperatures/view.ctp:14
+#: View/Units/view.ctp:2;9
+#: View/WashingMachines/view.ctp:29
+msgid "Unit"
+msgstr ""
+
+#: View/Spins/view.ctp:35
+msgid "Delete Spin"
+msgstr ""
+
+#: View/SubCategories/add.ctp:4
+msgid "Add Sub Category"
+msgstr ""
+
+#: View/SubCategories/edit.ctp:4
+#: View/SubCategories/view.ctp:19
+msgid "Edit Sub Category"
+msgstr ""
+
+#: View/SubCategories/index.ctp:2
+msgid "Sub Categories"
+msgstr ""
+
+#: View/SubCategories/view.ctp:20
+msgid "Delete Sub Category"
+msgstr ""
+
+#: View/Temperatures/add.ctp:4
+msgid "Add Temperature"
+msgstr ""
+
+#: View/Temperatures/add.ctp:16
+#: View/Temperatures/edit.ctp:18
+#: View/Temperatures/view.ctp:36
+#: View/Units/add.ctp:18
+#: View/Units/edit.ctp:20
+#: View/Units/index.ctp:45
+#: View/Units/view.ctp:35
+#: View/WashingMachines/add.ctp:24
+#: View/WashingMachines/edit.ctp:26
+#: View/WashingMachines/index.ctp:63
+#: View/WashingMachines/view.ctp:60
+msgid "List Temperatures"
+msgstr ""
+
+#: View/Temperatures/edit.ctp:4
+#: View/Temperatures/view.ctp:34
+msgid "Edit Temperature"
+msgstr ""
+
+#: View/Temperatures/index.ctp:2
+msgid "Temperatures"
+msgstr ""
+
+#: View/Temperatures/index.ctp:46
+#: View/Temperatures/view.ctp:37
+#: View/Units/add.ctp:19
+#: View/Units/edit.ctp:21
+#: View/Units/index.ctp:46
+#: View/Units/view.ctp:36;107
+#: View/WashingMachines/add.ctp:25
+#: View/WashingMachines/edit.ctp:27
+#: View/WashingMachines/index.ctp:64
+#: View/WashingMachines/view.ctp:61
+msgid "New Temperature"
+msgstr ""
+
+#: View/Temperatures/view.ctp:2
+#: View/WashingMachines/view.ctp:14
+msgid "Temperature"
+msgstr ""
+
+#: View/Temperatures/view.ctp:35
+msgid "Delete Temperature"
+msgstr ""
+
+#: View/Units/add.ctp:4
+msgid "Add Unit"
+msgstr ""
+
+#: View/Units/edit.ctp:4
+#: View/Units/view.ctp:29
+msgid "Edit Unit"
+msgstr ""
+
+#: View/Units/index.ctp:2
+msgid "Units"
+msgstr ""
+
+#: View/Units/view.ctp:30
+msgid "Delete Unit"
+msgstr ""
+
+#: View/Units/view.ctp:42
+msgid "Related Spins"
+msgstr ""
+
+#: View/Units/view.ctp:77
+msgid "Related Temperatures"
+msgstr ""
+
+#: View/Users/add.ctp:4
+msgid "Add User"
+msgstr ""
+
+#: View/Users/edit.ctp:4
+#: View/Users/view.ctp:39
+msgid "Edit User"
+msgstr ""
+
+#: View/Users/index.ctp:2
+msgid "Users"
+msgstr ""
+
+#: View/Users/login.ctp:4
+msgid "Login"
+msgstr ""
+
+#: View/Users/view.ctp:2
+msgid "User"
+msgstr ""
+
+#: View/Users/view.ctp:40
+msgid "Delete User"
+msgstr ""
+
+#: View/WashingMachines/add.ctp:4
+msgid "Add Washing Machine"
+msgstr ""
+
+#: View/WashingMachines/edit.ctp:4
+#: View/WashingMachines/view.ctp:54
+msgid "Edit Washing Machine"
+msgstr ""
+
+#: View/WashingMachines/index.ctp:2
+msgid "Washing Machines"
+msgstr ""
+
+#: View/WashingMachines/view.ctp:2
+msgid "Washing Machine"
+msgstr ""
+
+#: View/WashingMachines/view.ctp:55
+msgid "Delete Washing Machine"
+msgstr ""
+
+#: View/WashingMachines/view.ctp:71
+msgid "Related Additions"
+msgstr ""
+

@@ -20,6 +20,10 @@ class ProjectsController extends AppController {
 		
 	}
 	
+    public function carentertainment() {
+
+	}	
+	
 /**
  * index method
  *

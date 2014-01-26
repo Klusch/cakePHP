@@ -21,21 +21,34 @@ $this->end();
 ?>
 
 <div>
-<div class="tile double bg-emerald">
-  <a href='projects/schrittmotor'>
-  <div class="tile-content image">
-     <img src="img/">
-  </div>
-  </a>
-</div>
-<?php
+<?php 
+$parameters = array( 'tileSize' => 'double',
+		             'color' => 'bg-emerald',
+		             'icon' => 'icon-cycle',
+                     'image' => $this->Html->image('cake.icon.png'),
+		             'destination' => array('controller' => 'projects', 'action' => 'schrittmotor'),
+		             'title' => 'Schrittmotor',
+		             'text' => 'Schrittmotor'
+		            );
+echo $this->Tile->iconTile($parameters);
+
 echo $this->Tile->emptyTilesBar(4);
 ?>
 </div>
 <div style="clear:both"></div>
-<div> 
-<?php
-echo $this->Tile->emptyTilesBar(6);
+<div>
+<?php 
+$parameters = array( 'tileSize' => 'double',
+		             'color' => 'bg-emerald',
+		             'icon' => 'icon-cars',
+                     'image' => $this->Html->image('cake.icon.png'),
+		             'destination' => array('controller' => 'projects', 'action' => 'carentertainment'),
+		             'title' => 'Car Entertainment',
+		             'text' => 'Car Entertainment'
+		            );
+echo $this->Tile->iconTile($parameters);
+
+echo $this->Tile->emptyTilesBar(4);
 ?></div>
 <div style="clear:both"></div>
 <div> 

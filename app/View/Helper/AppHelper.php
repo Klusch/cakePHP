@@ -30,16 +30,18 @@ App::uses('Helper', 'View');
  */
 class AppHelper extends Helper {
 	
+	public $helpers = array('Html', 'Form', 'Session');
+	
 	// ================================================================
 	// =========== Breadcrumbs & Accordion ============================
 	
 	public function breadcrumbs($crumbs){
 	    $result = "";
-	    $home = array('controller' => 'pages', 'action' => 'home');
+	    $home = array('controller' => 'pages', 'action' => 'display', 'home');
         $target = "<i class='icon-home'></i>";
 	    
-	    $result .= "<nav class='breadcrumbs'>";
-        $result .= "   <ul>";
+	    $result .= "<nav class='breadcrumbs'>
+                      <ul>";
         $result .= "     <li>" . $this->Html->link($target, $home,	array('escape' => false, 'title' => 'Home')) . "</li>";
         $size = count($crumbs);
         foreach ($crumbs as $i => $crumb) {
@@ -55,30 +57,38 @@ class AppHelper extends Helper {
         	}
         }
         
-        $result .= "  </ul>";
-        $result .= "</nav>";
+        $result .= "  </ul>
+                    </nav>";
         return $result;
 	}
 	
-	function accordion($frames) {
+	public function accordion($frames, $activatedId = 0) {
 		$result = "";
-	    $result .= "<div class='accordion with-marker' data-role='accordion'>";
-	    
-	    foreach ($frames as $i => $frame) {
-           $result .= "  <div class='accordion-frame'>";
-           if ($i == 0) {
-              $result .= "    <a href='#' class='active heading'><div><div style='width:30px;float:right;margin-top:-2px'><button class='button small info'>" 
-                              . $frame['size'] . "</button></div><div>" . $frame['head'] . "</div>   </div></a>";
-           } else {
-           	  $result .= "    <a href='#' class='heading'><div><div style='width:30px;float:right;margin-top:-2px'><button class='button small info'>" 
-                              . $frame['size'] . "</button></div><div>" . $frame['head'] . "</div>   </div></a>";
-           }
-           $result .= "    <div class='content'>" . $frame['content'] . "</div>";
-           $result .= "  </div>";
+        foreach ($frames as $i => $frame) {
+            $result .= $this->accordionFrame(
+                  $frame['size']
+                , $frame['head']
+                , $frame['content']
+                , $i == $activatedId);
 	    }
 	    
-        $result .= "</div>";
-        return $result;
+        return "<div class='accordion with-marker' data-role='accordion'>
+                    $result
+                </div>";
 	}
+	
+    private function accordionFrame($size, $head, $content, $activated = false){
+      return "<div class='accordion-frame'>
+                <a href='#' class='".($activated ? "active ": "")." heading'>
+                    <div>
+                        <div style='width:30px;float:right;margin-top:-2px'>
+                            <button class='button small'> $size </button>
+                        </div>
+                        <div> $head </div>   
+                    </div>
+                </a>
+                <div class='content'>$content</div>
+              </div>";
+    }	
 	
 }

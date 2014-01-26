@@ -47,5 +47,8 @@ echo $this->Tile->emptyTilesBar(2);
 <div style="clear:both"></div>
 <div> 
 <?php
-echo $this->Tile->emptyTilesBar(6);
+echo $this->Tile->emptyTilesBar(3);
+echo $this->Tile->getCategoryItem('colors');
+echo $this->Tile->emptyTile();
+echo $this->Tile->emptyTile();
 ?></div>

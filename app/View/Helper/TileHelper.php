@@ -56,46 +56,50 @@ class TileHelper extends AppHelper {
 
 	public $categorySet = array (
 			'banks' => array ('categoryIcon' => 'icon-stats-up', 'categoryColor' => 'bg-yellow',
-					'categoryDestination' => array('controller' => 'banks', 'action' => 'index'),
-	                'description' => 'Geldanlagen'
-			),	
+					  'categoryDestination' => array('controller' => 'banks', 'action' => 'index'),
+	                                  'description' => 'Geldanlagen'
+			                  ),
+			'colors' => array ('categoryIcon' => ' icon-rainbow', 'categoryColor' => 'bg-cobalt',
+					   'categoryDestination' => array('controller' => 'colors', 'action' => 'index'),
+	                                   'description' => 'Farben'
+			                  ),
 			'costs' => array ('categoryIcon' => 'icon-heart-2', 'categoryColor' => 'bg-lime',
-					'categoryDestination' => array('controller' => 'costs', 'action' => 'index'),
-	                'description' => 'Kosten der Hochzeit'
-			),
+					  'categoryDestination' => array('controller' => 'costs', 'action' => 'index'),
+	                                  'description' => 'Kosten der Hochzeit'
+			                  ),
 			'joomlas' => array ('categoryIcon' => 'icon-joomla', 'categoryColor' => 'bg-amber',
-					'categoryDestination' => array('controller' => 'joomlas', 'action' => 'index'),
-	                'description' => 'Joomla Update'
-			),
+					    'categoryDestination' => array('controller' => 'joomlas', 'action' => 'index'),
+	                                    'description' => 'Joomla Update'
+			                   ),
 			'movies' => array ('categoryIcon' => 'icon-film', 'categoryColor' => 'bg-green',
-					'categoryDestination' => array('controller' => 'movies', 'action' => 'index'),
-	                'description' => 'Filme'
-			),
+					   'categoryDestination' => array('controller' => 'movies', 'action' => 'index'),
+	                                   'description' => 'Filme'
+			                  ),
 			'pages' => array ('categoryIcon' => 'icon-home', 'categoryColor' => 'bg-grayDark',
-					'categoryDestination' => array('controller' => 'pages', 'action' => 'index'),
-	                'description' => 'Filme'
-			),
+					  'categoryDestination' => array('controller' => 'pages', 'action' => 'index'),
+	                                 'description' => 'Uebersicht'
+			                 ),
 			'powers' => array ('categoryIcon' => 'icon-power', 'categoryColor' => 'bg-lightRed',
-					'categoryDestination' => array('controller' => 'powers', 'action' => 'index'),
-	                'description' => 'Filme'
-			),
+					   'categoryDestination' => array('controller' => 'powers', 'action' => 'index'),
+	                                   'description' => 'Strom'
+			                   ),
 			'projects' => array ('categoryIcon' => 'icon-lab', 'categoryColor' => 'bg-orange',
-					'categoryDestination' => array('controller' => 'projects', 'action' => 'index'),
-	                'description' => 'Filme'
-			),					
+					     'categoryDestination' => array('controller' => 'projects', 'action' => 'index'),
+	                                     'description' => 'Projekte'
+			                    ),					
 			'users' => array ('categoryIcon' => 'icon-user', 'categoryColor' => 'bg-darkPink',
-			        'categoryDestination' => array('controller' => 'users', 'action' => 'index'),
-			        'description' => 'Benutzerverwaltung'
-			),
+			                  'categoryDestination' => array('controller' => 'users', 'action' => 'index'),
+			                  'description' => 'Benutzerverwaltung'
+			                 ),
 			'userlogin' => array ('categoryIcon' => 'icon-key', 'categoryColor' => 'bg-darkEmerald',
-			        'categoryDestination' => array('controller' => 'users', 'action' => 'login'),
-			        'description' => 'Einlogen'
-			),			
+			                      'categoryDestination' => array('controller' => 'users', 'action' => 'login'),
+			                      'description' => 'Anmelden'
+			                     ),			
 	);
 
 	public function getCategoryItem($category = null) {
 		if ($category == null) {
-		  $hilf = strtolower($this->params['controller']);
+		  $hilf = strtolower($this->request->params['controller']);
 		} else {
 		  $hilf = strtolower($category);	
 		}
@@ -103,39 +107,85 @@ class TileHelper extends AppHelper {
 		if (empty($mySet)) {
 			return $this->emptyTile();
 		}
-			
-		return $this->specialTile($mySet['categoryIcon'],
-				$mySet['categoryDestination'],
-				$mySet['categoryColor']
-		);
+
+		$parameters = array( 'tileSize' => null,
+		                     'color' => $mySet['categoryColor'],
+		                     'icon' => $mySet['categoryIcon'],
+		                     'destination' => $mySet['categoryDestination'],
+		                     'title' => null,
+		                     'text' => null
+		                   );
+		
+		return $this->iconTile($parameters);
 	}
 
+	// ================================================================
+	// ============== Special-Tiles =====================================
+
+	/*
+	 * $parameters = array( 'tileSize' => null,
+	 *	                     'color' => $color,
+	 *	                     'icon' => null,
+	 *                       'image' => '/image/bild.jpg',
+	 *	                     'destination' => $destination,
+	 *	                     'title' => $text,
+	 *	                     'text' => $text
+	 *	                   );
+	 *
+	 * - if icon is set, icon will be displayed, image otherway
+	 */
+	public function iconTile($parameters) {
+        $result = "<div class='tile " . $parameters['tileSize'] . " " . $parameters['color'] . "'>";
+
+        if ($parameters['icon'] != null) {
+            $inhalt = "    <div class='tile-content icon'>
+                            <i class='" . $parameters['icon'] . "'></i>
+                           </div>";
+        } else {
+            $inhalt = "    <div class='tile-content image'>" .
+                              $parameters['image'] . "
+                           </div>";
+        	
+        }
+        $inhalt .= "   <div class='tile-status'>
+                            <span class='name'>" . $parameters['text'] . "</span>
+                        </div>";
+        
+        $result .= $this->Html->link($inhalt, $parameters['destination'], array('escape' => false, 'title' => $parameters['title'])) .
+                   "</div>";
+        
+        return $result;
+	}	
+	
 	// =================================================================
     // =========== Tiles with Badges ===================================
 	
 	/*
-	 * $parameters = array('color-bigarea' => 'bg-orange',
+	 * $parameters = array('tile-size' => null,
+	 *                     'color-bigarea' => 'bg-orange',
      *                     'icon-bigarea'  => 'icon-layers',
-     *                     'image-bigarea' => null,
+     *                     'image-bigarea' => null, //$this->Html->image(...),
      *                     'destination-smallarea' => array('controller' => $destination['controller'], 'action' => 'add'),
      *     	               'text-overlay' => null,
      *	                   'text-overlay-color' => 'fg-white',
      *	                   'badge-color' => 'bg-emerald',
      *	                   'badge-icon' => 'icon-plus-2',
+     *                     'badge-valueAsIcon' => 'xxx',
      *	                   'destination-bigarea' => $destination,
-     *	                   'title-bigarea' => $title
+     *	                   'title-bigarea' => $title,
      *	                   'title-smallarea' => null
      *	);
      *
      *  - if image is set image will displayed else icon is used
+     *  - if badge-icon is set icon will displayed else badge-valueAsIcon is used
 	 */
 	function tileBadge($parameters) {
 	    $result = "";
-        $result .= "<div class='tile " . $parameters['color-bigarea'] . "'>";
+        $result .= "<div class='tile " . $parameters['tile-size'] . " " . $parameters['color-bigarea'] . "'>";
         
         if ($parameters['image-bigarea'] != null) {
-           $fill = "   <div class='tile-content image'>
-                          <img src='" . $parameters['image-bigarea'] ."'>
+           $fill = "   <div class='tile-content image'>" .
+                          $parameters['image-bigarea'] . "
                        </div>";        	
         } else {
            $fill = "   <div class='tile-content icon'>
@@ -149,7 +199,13 @@ class TileHelper extends AppHelper {
         	$fill .= "       <span class='label " . $parameters['text-overlay-color'] . "'>" . $parameters['text-overlay'] . "</span>";
         }
         
-        $fillsmall = "       <span class='badge " . $parameters['badge-color'] . "'><i class='" . $parameters['badge-icon'] . "'></i></span>";
+        $fillsmall = "       <span class='badge " . $parameters['badge-color'] . "'>";
+        if ($parameters['badge-icon'] != null) {
+           $fillsmall .=  "    <i class='" . $parameters['badge-icon'] . "'></i>";
+        } else {
+           $fillsmall .=      $parameters['badge-valueAsIcon'];	
+        }
+        $fillsmall .= "       </span>";
         
         if ($parameters['destination-smallarea'] != null) {
         	$fillsmall = $this->Html->link($fillsmall, $parameters['destination-smallarea'], array('escape' => false, 'title' => $parameters['title-smallarea']));
@@ -166,41 +222,57 @@ class TileHelper extends AppHelper {
         
         $result .= "</div>";
         return $result;
-	}		
+	}			
 	
+	// =================================================================
+	// ============= Custom Tiles ======================================
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/*
+	 *  $parameters = array('title' => '',
+	 *	                    'tile-size' => 'double',
+	 *                      'destination' => array('controller' => 'users', 'action' => 'edit', $user['User']['id']),
+	 *	                    'color' => 'bg-grayLighter',
+	 *	                    'image' => $this->Html->image($user['Group']['picture_url'], array('height' => '60', 'width' => '60')),
+	 *	                    'row1'  => $user['User']['username'],
+	 *	                    'row2'  => $user['User']['first_name'].' '.$user['User']['last_name'],
+	 *	                    'row3'  => $user['User']['phone'],
+	 *	                    'row4'  => $user['Company']['name'],
+	 *	                    'row5'  => $user['Company']['country']. ', ' . $user['Company']['zip'] . ' ' . $user['Company']['city'],
+	 *	                   );
+	 */
+	public function fiveRowDoubleTileWithImage($parameters) {
+		$result = "  <div>";
+		             if ($parameters['image'] != null) {
+                       $result .= "<div style='width:70px; height:60px; float:left;'>" .
+                                     $parameters['image'] . "
+                                   </div>";
+		             }
+		             
+       $result .= "    <div style='clear:right'>
+                         
+                           <p style='margin:5px; height:60px;'>".$parameters['row1']."<br>
+                              ".$parameters['row2']."<br>
+                              ".$parameters['row3']."</p>
+                         
+                       </div>
+                       <div style='margin:5px;'>
+                          <p>".$parameters['row4']."<br>";
+                          if (strcmp(trim($parameters['row5']), ',') != 0){
+                          	$result .= $parameters['row5'];
+                          }
+        $result .=       "</p>
+                       </div>
+                     </div>";
+        
+        $result = "<div class='tile " . $parameters['tile-size'] . " " . $parameters['color'] . "' style='border: 1px #000000 solid;'>" .
+                       $this->Html->link($result, $parameters['destination'], array('escape' => false, 'title' => $parameters['title'])) .
+		          "</div>";
+		return $result;
+	}	
+    
+    
 	// ================================================================
 	// =========== Hilfsfunktionen ====================================
-
-	public function mobileVersion() {
-		return $this->request->is('mobile');
-		//return true;
-	}
-
-	public function url($url = null, $full = false) {
-		if(!isset($url['language']) && isset($this->params['language'])) {
-			#$url['language'] = $this->params['language'];
-		}
-			
-		return parent::url($url, $full);
-	}
 
 	public function emptyTilesBar($amount){
 		$result = "";
@@ -219,22 +291,32 @@ class TileHelper extends AppHelper {
 	// ================================================================
 	// =========== Standard OP for Toptiles ===========================
 
-	public function addTile($id = null, $context = null) {
-		return $this->actionTile('icon-plus-2', 'add', __('Add'), $id, $context);
+	public function addTile($id = null, $text = null) {
+		$parameters = array( 'tileSize' => null,
+	 	                     'color' => 'bg-green',
+	 	                     'icon' => 'icon-plus-2',
+	                         'image' => null,
+	 	                     'destination' => array('action' => 'add', $id),
+	 	                     'title' => $text,
+	 	                     'text' => $text
+	 	                   );
+	 
+		return $this->iconTile($parameters);
 	}
 
+/*	
 	public function viewTile($id = null) {
 		return $this->actionTile('icon-info-2', 'view', __('View'), $id);
 	}
-
+*/
 	public function editTile($id = null, $secondId = null) {
 		return $this->actionTile('icon-pencil', 'edit', __('Edit'), $id, $secondId);
 	}
-
+/*
 	public function editDetailsTile($id = null){
 		return $this->actionTile('icon-zoom-in', 'edit_details', __('Edit Details'), $id);
 	}
-
+*/
 	public function deleteTile($id = null, $destination = null) {	
 		$color = 'bg-emerald';
 		$icon = 'icon-minus-2';
@@ -438,39 +520,7 @@ class TileHelper extends AppHelper {
 		return $result;
 	}
 
-	// ================================================================
-	// ============== Special-Tiles =====================================
 
-	public function specialTextTile($icon, $destination = array(), $color = 'bg-darkPink', $text  = '', $tileOptions = array()) {
-		$txtComponent = "";
-		if (!empty($text)) {
-			$txtComponent = $this->tileTextOverlay($text);
-		}
-
-		$result = $this->specialTile($icon, $destination, $color, $text, $tileOptions, $txtComponent);
-
-		return $result;
-	}
-
-	public function specialTile($icon, $destination = array(), $color = 'bg-darkPink', $text= '', $tileOptions = array(), $txtComponent = '') {
-		$class = "tile $color ";
-
-		if(isset($tileOptions['class'])){
-			$class .= " ".$tileOptions['class']." ";
-		}
-		if(isset($tileOptions['selected'])){
-			if($tileOptions['selected']){
-				$class .= " selected ";
-			}
-			unset($tileOptions['selected']);
-		}
-
-		$icon = $this->Html->div('tile-content icon', "<i class='$icon'></i>$txtComponent");
-		if (!empty($destination)) {
-			$icon = $this->Html->link($icon, $destination, array('escape' => false, 'title' => str_replace('<br>', ' ', $text)));
-		}
-		return $this->Html->div($class, $icon, $tileOptions);
-	}
 
 	public function tileTextOverlay($text){
 		$tileElement = "";
