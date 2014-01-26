@@ -22,3 +22,6 @@ ehthumbs.db
 Thumbs.db
 /app/nbproject/private/
 *.buildpath
+*.project
+.settings
+nbproject
