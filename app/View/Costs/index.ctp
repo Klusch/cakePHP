@@ -1,26 +1,49 @@
 <?php
+// View/Costs/index.ctp
+// ------------------------------------
 $this->start('frameRequest');
    echo 'true';
-$this->end(); 
-?>
-
-<?php
-$this->start('topTiles');
-    echo $this->Tile->getCategoryItem('pages');
-    echo $this->Tile->addTile();
-    $destination = array('action' => 'overall');
-    echo $this->Tile->specialTile('icon-dollar-2', $destination, 'bg-yellow', null);
-    echo $this->Tile->emptyTilesBar(4);
 $this->end();
+// ------------------------------------
 ?>
 
 <?php
-$this->start('sideTiles');
-    echo $this->Tile->getCategoryItem();
-    //echo $this->Tile->specialTile('icon-plus-2', null, 'bg-grayLighter', null);
-    echo $this->Tile->emptyTilesBar(3);
-$this->end(); 
-?> 
+// ------------------------------------
+$this->start('breadCrumbs');
+   $crumbs = array();
+   $crumb = array(
+       'text' => __('Kosten der Hochzeit'),
+       'link' => array('controller' => 'costs', 'action' => 'index')            
+       );
+   $crumbs[] = $crumb;
+   echo $this->App->breadcrumbs($crumbs);
+$this->end();
+// ------------------------------------
+?>
+
+<?php
+// ------------------------------------
+$this->start('topTiles');
+    echo $this->Tile->getCategoryItem('costs');
+    echo $this->Tile->addTile();
+    echo $this->Tile->editTile();
+    echo $this->Tile->deleteTile();
+    
+    $parameters = array(
+        'tileSize' => null,
+        'color' => 'bg-yellow',
+        'icon' => 'icon-dollar-2',
+        'image' => null,
+        'destination' => array('action' => 'overall'),
+        'title' => __('Gesamtrechnung'),
+        'text' => __('Gesamtrechnung')
+    );
+    
+    echo $this->Tile->iconTile($parameters);
+    echo $this->Tile->emptyTilesBar(2);
+$this->end();
+// ------------------------------------
+?>
 
 <div class="costs index">
 	<h2><?php echo __('Costs'); ?></h2>

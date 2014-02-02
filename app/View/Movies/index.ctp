@@ -1,24 +1,35 @@
 <?php
+// View/Movies/index.ctp
+// ------------------------------------
 $this->start('frameRequest');
    echo 'false';
-$this->end(); 
+$this->end();
+// ------------------------------------
 ?>
 
 <?php
+// ------------------------------------
+$this->start('breadCrumbs');
+   $crumbs = array();
+   $crumb = array(
+       'text' => __('Filme'),
+       'link' => array('action' => 'index')            
+       );
+   $crumbs[] = $crumb;
+   echo $this->App->breadcrumbs($crumbs);
+$this->end();
+// ------------------------------------
+?>
+
+<?php
+// ------------------------------------
 $this->start('topTiles');
-    echo $this->Tile->getCategoryItem('pages');
+    echo $this->Tile->getCategoryItem('movies');
     echo $this->Tile->emptyTile();
     echo $this->Tile->emptyTilesBar(5);
 $this->end();
+// ------------------------------------
 ?>
-
-<?php
-$this->start('sideTiles');
-    echo $this->Tile->getCategoryItem();
-    echo $this->Tile->specialTile('icon-plus-2', null, 'bg-grayLighter', null);
-    echo $this->Tile->emptyTilesBar(4);
-$this->end(); 
-?> 
 
 <div class="tile double">
   <div class="tile-content image">

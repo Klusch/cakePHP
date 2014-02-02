@@ -1,27 +1,57 @@
 <?php
+// View/Costs/overall.ctp
+// ------------------------------------
 $this->start('frameRequest');
    echo 'true';
-$this->end(); 
+$this->end();
+// ------------------------------------
 ?>
 
 <?php
+// ------------------------------------
+$this->start('breadCrumbs');
+   $crumbs = array();
+   $crumb = array(
+       'text' => __('Kosten der Hochzeit'),
+       'link' => array('controller' => 'costs', 'action' => 'index')            
+       );
+   $crumbs[] = $crumb;
+   echo $this->App->breadcrumbs($crumbs);
+$this->end();
+// ------------------------------------
+?>
+
+<?php
+// ------------------------------------
 $this->start('topTiles');
-    echo $this->Tile->getCategoryItem('pages');
-    $destination = array('action' => 'festivity');
-    echo $this->Tile->specialTile('icon-dollar', $destination, 'bg-red', 'Feier-Details');
-    $destination = array('action' => 'journey');
-    echo $this->Tile->specialTile('icon-dollar', $destination, 'bg-yellow', 'Reise-Details');
+    echo $this->Tile->getCategoryItem('costs');
+    
+    $parameters = array(
+        'tileSize' => null,
+        'color' => 'bg-red',
+        'icon' => 'icon-dollar',
+        'image' => null,
+        'destination' => array('action' => 'festivity'),
+        'title' => __('Kosten der Feier'),
+        'text' => __('Feier')
+    );    
+    echo $this->Tile->iconTile($parameters);    
+    
+     $parameters = array(
+        'tileSize' => null,
+        'color' => 'bg-yellow',
+        'icon' => 'icon-dollar',
+        'image' => null,
+        'destination' => array('action' => 'journey'),
+        'title' => __('Kosten der Reise'),
+        'text' => __('Reise')
+    );    
+    echo $this->Tile->iconTile($parameters);
+    
     echo $this->Tile->emptyTilesBar(4);
 $this->end();
+// ------------------------------------
 ?>
-
-<?php
-$this->start('sideTiles');
-    echo $this->Tile->getCategoryItem();
-    echo $this->Tile->specialTile('icon-dollar-2', null, 'bg-grayLighter', null);
-    echo $this->Tile->emptyTilesBar(3);
-$this->end(); 
-?> 
 
 <h2>Gesamtkosten der Hochzeit</h2>
 

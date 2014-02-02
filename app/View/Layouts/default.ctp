@@ -61,17 +61,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             </div>
          </div>
          
-         <?php echo $this->fetch('breadCrumbs'); ?> 
+         <div style="padding-left: 7px">
+           <?php echo $this->fetch('breadCrumbs'); ?> 
+         </div>
          
-         <div id="contentWithTiles" class="row"> <!-- style="background:rgba(193, 0, 123, 0.52);"> --> 
-            <div id="sidetiles" class="span2" style="padding-left: 10px;"> <!-- background:rgba(193, 55, 123, 0.52); -->
-              <?php echo $this->fetch('sideTiles'); ?> 
-            </div>
+         <div id="content-row" class="row" style="padding-left: 10px; padding-top: 10px;">
+
             <div id="content" class="content" style="margin:0px; background:rgba(220, 155, 83, 0.52);"> 
               <?php if ($this->fetch('frameRequest') == 'true') {  
-                      echo "<div class='balloon span10' style='padding:15px'>";
+                      echo "<div id='content-balloon-frame' class='balloon span12' style='padding:15px; width:0px'>";
                     } else {
-                      echo "<div class='balloon span10' style='padding:0px; border:0px;'>";	
+                      echo "<div id='content-balloon-without-frame' class='balloon span12' style='padding:0px; border:0px;'>";	
                     }
                      
                     echo $this->fetch('content');
@@ -81,5 +81,31 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 	</div><!-- ENDE grid -->
 	<?php echo $this->element('sql_dump'); ?>
+        
+        <script>
+            $(function() {
+                const tileSize = 130;             
+                var elements = $("#toptiles > div").size();
+                var width = elements * tileSize;
+                $("#content-balloon-without-frame").attr('style', function(i,s) { return s + '; width: '+width+'px !important;' });
+                width = width  - 10;
+                $("#content-balloon-frame").attr('style', function(i,s) { return s + '; width: '+width+'px !important;' });
+            });
+            
+              // Polling by JavaScript (jQuery)
+//             (function worker() {
+//                $.ajax({
+//                  url: 'ajax/index', 
+//                  success: function(data) {
+//                  //$('.result').html(data);
+//                  },
+//                  complete: function() {
+//                    // Schedule the next request when the current one's complete
+//                    setTimeout(worker, 5000);
+//                  }
+//                });
+//             })();
+
+        </script>
 </body>
 </html>

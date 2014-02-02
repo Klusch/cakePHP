@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application level View Helper
  *
@@ -29,57 +30,57 @@ App::uses('Helper', 'View');
  * @package       app.View.Helper
  */
 class AppHelper extends Helper {
-	
-	public $helpers = array('Html', 'Form', 'Session');
-	
-	// ================================================================
-	// =========== Breadcrumbs & Accordion ============================
-	
-	public function breadcrumbs($crumbs){
-	    $result = "";
-	    $home = array('controller' => 'pages', 'action' => 'display', 'home');
+
+    public $helpers = array('Html', 'Form', 'Session');
+
+    // ================================================================
+    // =========== Breadcrumbs & Accordion ============================
+
+    public function breadcrumbs($crumbs) {
+        $result = "";
+        $home = array('controller' => 'pages', 'action' => 'display', 'home');
         $target = "<i class='icon-home'></i>";
-	    
-	    $result .= "<nav class='breadcrumbs'>
+
+        $result .= "<nav class='breadcrumbs'>
                       <ul>";
-        $result .= "     <li>" . $this->Html->link($target, $home,	array('escape' => false, 'title' => 'Home')) . "</li>";
+        $result .= "     <li>" . $this->Html->link($target, $home, array('escape' => false, 'title' => 'Home')) . "</li>";
         $size = count($crumbs);
         foreach ($crumbs as $i => $crumb) {
-        	if ($i == $size-1) {
-        		$result .= " <li class='active'>";
-        	} else {
-        		$result .= " <li>";
-        	}
-        	if (isset($crumb['link'])) {
-        		$result .= $this->Html->link($crumb['text'], $crumb['link'], array('escape' => false, 'title' => $crumb['text'])) . "</li>";
-        	} else {
-        		$result .= $crumb['text']. "</li>";
-        	}
+            if ($i == $size - 1) {
+                $result .= " <li class='active'>";
+            } else {
+                $result .= " <li>";
+            }
+            if (isset($crumb['link'])) {
+                $result .= $this->Html->link($crumb['text'], $crumb['link'], array('escape' => false, 'title' => $crumb['text'])) . "</li>";
+            } else {
+                $result .= $crumb['text'] . "</li>";
+            }
         }
-        
+
         $result .= "  </ul>
                     </nav>";
         return $result;
-	}
-	
-	public function accordion($frames, $activatedId = 0) {
-		$result = "";
+    }
+
+    public function accordion($frames, $activatedId = 0) {
+        $result = "";
         foreach ($frames as $i => $frame) {
             $result .= $this->accordionFrame(
-                  $frame['size']
-                , $frame['head']
-                , $frame['content']
-                , $i == $activatedId);
-	    }
-	    
+                    $frame['size']
+                    , $frame['head']
+                    , $frame['content']
+                    , $i == $activatedId);
+        }
+
         return "<div class='accordion with-marker' data-role='accordion'>
                     $result
                 </div>";
-	}
-	
-    private function accordionFrame($size, $head, $content, $activated = false){
-      return "<div class='accordion-frame'>
-                <a href='#' class='".($activated ? "active ": "")." heading'>
+    }
+
+    private function accordionFrame($size, $head, $content, $activated = false) {
+        return "<div class='accordion-frame'>
+                <a href='#' class='" . ($activated ? "active " : "") . " heading'>
                     <div>
                         <div style='width:30px;float:right;margin-top:-2px'>
                             <button class='button small'> $size </button>
@@ -89,6 +90,6 @@ class AppHelper extends Helper {
                 </a>
                 <div class='content'>$content</div>
               </div>";
-    }	
-	
+    }
+
 }
