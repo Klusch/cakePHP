@@ -140,17 +140,21 @@ class TileHelper extends AppHelper {
                             <i class='" . $parameters['icon'] . "'></i>
                            </div>";
         } else {
-            $inhalt = "    <div class='tile-content image'>" .
-                    $parameters['image'] . "
+            $inhalt = "    <div class='tile-content image'>
+                               <img src='" . $parameters['image'] . "'></img>
                            </div>";
         }
         $inhalt .= "   <div class='tile-status'>
                             <span class='name'>" . $parameters['text'] . "</span>
                         </div>";
 
-        $result .= $this->Html->link($inhalt, $parameters['destination'], array('escape' => false, 'title' => $parameters['title'])) .
-                "</div>";
-
+        if ($parameters['destination'] != null) {
+            $result .= $this->Html->link($inhalt, $parameters['destination'], array('escape' => false, 'title' => $parameters['title']));
+        } else {
+            $result .=  $inhalt;
+        }
+        $result .= "</div>";
+        
         return $result;
     }
 

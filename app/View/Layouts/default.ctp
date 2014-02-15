@@ -48,6 +48,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 </head>
 <body class="metro">
+<noscript>
+Sorry, but this site relays entirely on javascript. <br />
+For your information, it doesn't include any tracker or any script linking to another domain.
+</noscript>
 <?php echo $this->Session->flash(); ?>
 	<div id="container">
 	

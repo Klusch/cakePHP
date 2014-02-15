@@ -25,10 +25,39 @@ $this->end();
 // ------------------------------------
 $this->start('topTiles');
     echo $this->Tile->getCategoryItem('movies');
-    echo $this->Tile->emptyTile();
+    
+    $parameters = array('tile-size' => null,
+                        'color-bigarea' => 'bg-orange',
+                        'icon-bigarea'  => 'icon-layers',
+                        'image-bigarea' => null, //$this->Html->image(...),
+                        'destination-smallarea' => array('controller' => 'status', 'action' => 'add'),
+          	        'text-overlay' => null,
+      	                'text-overlay-color' => 'fg-white',
+      	                'badge-color' => 'bg-emerald',
+      	                'badge-icon' => 'icon-plus-2',
+                        'badge-valueAsIcon' => 'xxx',
+      	                'destination-bigarea' => array('controller' => 'status', 'action' => 'index'),
+      	                'title-bigarea' => __('Status'),
+      	                'title-smallarea' => null
+      	);
+    echo $this->Tile->tileBadge($parameters);
     echo $this->Tile->emptyTilesBar(5);
 $this->end();
 // ------------------------------------
+?>
+
+<?php
+
+  $parameters = array( 'tileSize' => 'double',
+      	               'color' => null,
+      	               'icon' => null,
+                       'image' => 'img/Eiskoenigin/3.jpg',
+      	               'destination' => null,
+      	               'title' => 'Die Eiskönigin',
+      	               'text' => 'Die Eiskönigin'
+      	             );
+  echo $this->Tile->iconTile($parameters);
+
 ?>
 
 <div class="tile double">
