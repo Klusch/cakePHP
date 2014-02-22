@@ -7,12 +7,43 @@ $this->end();
 <?php
 $this->start('topTiles');
     echo $this->Tile->getCategoryItem('pages');
-    $destination = array('action' => 'clothes');
-    echo $this->Tile->specialTile('icon-coins', $destination, 'bg-gray', 'Kleidung-Details');
-    $destination = array('action' => 'catering');
-    echo $this->Tile->specialTile('icon-coins', $destination, 'bg-yellow', 'Catering-Details');
-    $destination = array('action' => 'interest');
-    echo $this->Tile->specialTile('icon-chart-alt', $destination, 'bg-blue', 'Most-Details');    
+    
+    $parameters = array(
+        'tileSize' => null,
+        'color' => 'bg-gray',
+        'icon' => 'icon-coins',
+        'image' => null,
+        'destination' => array('action' => 'clothes'),
+        'title' => __('Kleidung-Details'),
+        'text' => __('Kleidung'),
+        'id' => null
+    );    
+    echo $this->Tile->iconTile($parameters);
+    
+    $parameters = array(
+        'tileSize' => null,
+        'color' => 'bg-yellow',
+        'icon' => 'icon-coins',
+        'image' => null,
+        'destination' => array('action' => 'catering'),
+        'title' => __('Catering-Details'),
+        'text' => __('Catering'),
+        'id' => null
+    );    
+    echo $this->Tile->iconTile($parameters);
+    
+    $parameters = array(
+        'tileSize' => null,
+        'color' => 'bg-blue',
+        'icon' => 'icon-chart-alt',
+        'image' => null,
+        'destination' => array('action' => 'interest'),
+        'title' => __('Most-Details'),
+        'text' => __('Most-Details'),
+        'id' => null
+    );    
+    echo $this->Tile->iconTile($parameters);
+
     echo $this->Tile->emptyTilesBar(3);
 $this->end();
 ?>

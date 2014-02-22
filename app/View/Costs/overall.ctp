@@ -33,7 +33,8 @@ $this->start('topTiles');
         'image' => null,
         'destination' => array('action' => 'festivity'),
         'title' => __('Kosten der Feier'),
-        'text' => __('Feier')
+        'text' => __('Feier'),
+        'id' => null
     );    
     echo $this->Tile->iconTile($parameters);    
     
@@ -44,7 +45,8 @@ $this->start('topTiles');
         'image' => null,
         'destination' => array('action' => 'journey'),
         'title' => __('Kosten der Reise'),
-        'text' => __('Reise')
+        'text' => __('Reise'),
+        'id' => null
     );    
     echo $this->Tile->iconTile($parameters);
     

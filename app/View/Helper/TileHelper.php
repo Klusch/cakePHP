@@ -54,43 +54,47 @@ class TileHelper extends AppHelper {
 
     public $categorySet = array(
         'banks' => array('categoryIcon' => 'icon-stats-up', 'categoryColor' => 'bg-yellow',
-            'categoryDestination' => array('controller' => 'banks', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Banks', 'action' => 'index'),
             'description' => 'Geldanlagen'
         ),
         'colors' => array('categoryIcon' => ' icon-rainbow', 'categoryColor' => 'bg-cobalt',
-            'categoryDestination' => array('controller' => 'colors', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Colors', 'action' => 'index'),
             'description' => 'Farben'
         ),
         'costs' => array('categoryIcon' => 'icon-heart-2', 'categoryColor' => 'bg-lime',
-            'categoryDestination' => array('controller' => 'costs', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Costs', 'action' => 'index'),
             'description' => 'Kosten der Hochzeit'
         ),
+        'elektronicparts' => array('categoryIcon' => 'icon-clipboard', 'categoryColor' => 'bg-darkCobalt',
+            'categoryDestination' => array('controller' => 'ElectronicParts', 'action' => 'index'),
+            'description' => 'Anmelden'
+        ),
         'joomlas' => array('categoryIcon' => 'icon-joomla', 'categoryColor' => 'bg-amber',
-            'categoryDestination' => array('controller' => 'joomlas', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Joomlas', 'action' => 'index'),
             'description' => 'Joomla Update'
         ),
         'movies' => array('categoryIcon' => 'icon-film', 'categoryColor' => 'bg-green',
-            'categoryDestination' => array('controller' => 'movies', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Movies', 'action' => 'index'),
             'description' => 'Filme'
         ),
         'pages' => array('categoryIcon' => 'icon-home', 'categoryColor' => 'bg-grayDark',
-            'categoryDestination' => array('controller' => 'pages', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Pages', 'action' => 'display'),
             'description' => 'Uebersicht'
         ),
         'powers' => array('categoryIcon' => 'icon-power', 'categoryColor' => 'bg-lightRed',
-            'categoryDestination' => array('controller' => 'powers', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Powers', 'action' => 'index'),
             'description' => 'Strom'
         ),
         'projects' => array('categoryIcon' => 'icon-lab', 'categoryColor' => 'bg-orange',
-            'categoryDestination' => array('controller' => 'projects', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Projects', 'action' => 'index'),
             'description' => 'Projekte'
         ),
         'users' => array('categoryIcon' => 'icon-user', 'categoryColor' => 'bg-darkPink',
-            'categoryDestination' => array('controller' => 'users', 'action' => 'index'),
+            'categoryDestination' => array('controller' => 'Users', 'action' => 'index'),
             'description' => 'Benutzerverwaltung'
         ),
-        'userlogin' => array('categoryIcon' => 'icon-key', 'categoryColor' => 'bg-darkEmerald',
-            'categoryDestination' => array('controller' => 'users', 'action' => 'login'),
+        'userlogin' => array('categoryIcon' => 'icon-key', 'categoryColor' => 'bg-green',
+            'categoryDestination' => array('controller' => 'Users', 'action' => 'login'),
             'description' => 'Anmelden'
         ),
     );
@@ -111,7 +115,8 @@ class TileHelper extends AppHelper {
             'icon' => $mySet['categoryIcon'],
             'destination' => $mySet['categoryDestination'],
             'title' => null,
-            'text' => null
+            'text' => null,
+            'id' => 'categoryItem'
         );
 
         return $this->iconTile($parameters);
@@ -127,13 +132,14 @@ class TileHelper extends AppHelper {
      *                       'image' => '/image/bild.jpg',
      * 	                     'destination' => $destination,
      * 	                     'title' => $text,
-     * 	                     'text' => $text
+     * 	                     'text' => $text,
+     *                       'id' => $id
      * 	                   );
      *
      * - if icon is set, icon will be displayed, image otherway
      */
     public function iconTile($parameters) {
-        $result = "<div class='tile " . $parameters['tileSize'] . " " . $parameters['color'] . "'>";
+        $result = "<div class='tile " . $parameters['tileSize'] . " " . $parameters['color'] . "' id=" . $parameters['id'] . ">";
 
         if ($parameters['icon'] != null) {
             $inhalt = "    <div class='tile-content icon'>
@@ -151,10 +157,10 @@ class TileHelper extends AppHelper {
         if ($parameters['destination'] != null) {
             $result .= $this->Html->link($inhalt, $parameters['destination'], array('escape' => false, 'title' => $parameters['title']));
         } else {
-            $result .=  $inhalt;
+            $result .= $inhalt;
         }
         $result .= "</div>";
-        
+
         return $result;
     }
 
@@ -291,6 +297,34 @@ class TileHelper extends AppHelper {
     // ================================================================
     // =========== Standard OP for Toptiles ===========================
 
+    public function submitTile() {
+        $parameters = array('tileSize' => null,
+            'color' => 'bg-emerald',
+            'icon' => 'icon-enter-2',
+            'image' => null,
+            'destination' => null,
+            'title' => __('submit'),
+            'text' => null,
+            'id' => 'submitTileId'
+        );
+
+        return $this->iconTile($parameters);
+    }
+
+    public function cancelTile($destination) {
+        $parameters = array('tileSize' => null,
+            'color' => 'bg-red',
+            'icon' => 'icon-cancel-2',
+            'image' => null,
+            'destination' => $destination,
+            'title' => __('cancel'),
+            'text' => null,
+            'id' => 'cancelTile'
+        );
+
+        return $this->iconTile($parameters);
+    }    
+    
     public function addTile() {
         $parameters = array('tileSize' => null,
             'color' => 'bg-green',
@@ -298,12 +332,13 @@ class TileHelper extends AppHelper {
             'image' => null,
             'destination' => array('action' => 'add'),
             'title' => __('add'),
-            'text' => null
+            'text' => null,
+            'id' => 'addTile'
         );
 
         return $this->iconTile($parameters);
     }
-    
+
     public function editTile($id = null) {
         $parameters = array('tileSize' => null,
             'color' => 'bg-green',
@@ -311,12 +346,13 @@ class TileHelper extends AppHelper {
             'image' => null,
             'destination' => array('action' => 'edit', $id),
             'title' => __('edit'),
-            'text' => null
+            'text' => null,
+            'id' => 'editTile'
         );
 
         return $this->iconTile($parameters);
     }
-    
+
     public function deleteTile($id = null, $destination = null) {
         $color = 'bg-green';
         $icon = 'icon-minus-2';
@@ -330,10 +366,10 @@ class TileHelper extends AppHelper {
         $result .= "<div class='tile " . $color . "'>";
 
         $result .= $this->Form->create(null, array('id' => 'post_52b2bc87e06bd718709271',
-                    'name' => 'post_52b2bc87e06bd718709271',
-                    'inputDefaults' => array('label' => false, 'div' => false),
-                    'type' => 'post',
-                    'action' => $action));
+            'name' => 'post_52b2bc87e06bd718709271',
+            'inputDefaults' => array('label' => false, 'div' => false),
+            'type' => 'post',
+            'action' => $action));
 
         $result .= $this->Form->end();
         $result .= "  <a href='#' onclick='if (confirm(&quot;M\u00f6chten Sie mit dem L\u00f6schen fortfahren?&quot;)) {document.post_52b2bc87e06bd718709271.submit();} event.returnValue = false; return false;'>";

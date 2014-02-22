@@ -36,7 +36,8 @@ $this->start('topTiles');
         'image' => null,
         'destination' => array('action' => 'overall'),
         'title' => __('Gesamtrechnung'),
-        'text' => __('Gesamtrechnung')
+        'text' => __('Gesamtrechnung'),
+        'id' => 'sumTile'
     );
     
     echo $this->Tile->iconTile($parameters);

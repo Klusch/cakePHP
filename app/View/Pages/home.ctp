@@ -47,6 +47,6 @@ echo $this->Tile->emptyTilesBar(2);
 <?php
 echo $this->Tile->emptyTilesBar(4);
 echo $this->Tile->getCategoryItem('colors');
-echo $this->Tile->emptyTile();
+echo $this->Tile->getCategoryItem('elektronicparts');
 echo $this->Tile->emptyTile();
 ?></div>
