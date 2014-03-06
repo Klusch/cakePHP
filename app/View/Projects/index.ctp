@@ -6,22 +6,27 @@ $this->end();
 
 <?php
 $this->start('topTiles');
-echo $this->Tile->getCategoryItem('pages');
+echo $this->Tile->getCategoryItem();
+echo $this->Tile->addTile();
 //    $destination = array('controller' => 'costs', 'action' => 'charts');
 //    echo $this->Tile->specialTile('icon-chart-alt', $destination, 'bg-yellow', null);
-echo $this->Tile->emptyTilesBar(6);
+echo $this->Tile->emptyTilesBar(5);
 $this->end();
 ?>
 
 <?php
-$this->start('sideTiles');
-echo $this->Tile->getCategoryItem();
-echo $this->Tile->emptyTilesBar(3);
+$this->start('breadCrumbs');
+    $crumbs = array(
+                 array('text' => __('Projects'), 'link' => array('action' => '#')),
+              );
+    echo $this->App->breadcrumbs($crumbs);
 $this->end();
 ?>
 
 <div>
     <?php
+    echo $this->Tile->emptyTile();
+    
     $parameters = array('tileSize' => 'double',
         'color' => 'bg-emerald',
         'icon' => 'icon-cycle',
@@ -39,6 +44,7 @@ $this->end();
 <div style="clear:both"></div>
 <div>
     <?php
+    echo $this->Tile->emptyTile();
     $parameters = array('tileSize' => 'double',
         'color' => 'bg-emerald',
         'icon' => 'icon-cars',
@@ -55,10 +61,10 @@ $this->end();
 <div style="clear:both"></div>
 <div> 
     <?php
-    echo $this->Tile->emptyTilesBar(6);
+    echo $this->Tile->emptyTilesBar(7);
     ?></div>
 <div style="clear:both"></div>
 <div> 
     <?php
-    echo $this->Tile->emptyTilesBar(6);
+    echo $this->Tile->emptyTilesBar(7);
     ?></div>

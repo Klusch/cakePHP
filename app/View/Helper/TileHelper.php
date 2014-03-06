@@ -99,7 +99,7 @@ class TileHelper extends AppHelper {
         ),
     );
 
-    public function getCategoryItem($category = null) {
+    public function getCategoryItem($category = null, $raw = false) {
         if ($category == null) {
             $hilf = strtolower($this->request->params['controller']);
         } else {
@@ -119,7 +119,11 @@ class TileHelper extends AppHelper {
             'id' => 'categoryItem'
         );
 
-        return $this->iconTile($parameters);
+        if ($raw == true) {
+            return $parameters;
+        } else {
+            return $this->iconTile($parameters);
+        }
     }
 
     // ================================================================
@@ -167,6 +171,25 @@ class TileHelper extends AppHelper {
     // =================================================================
     // =========== Tiles with Badges ===================================
 
+    function tileBadgeForOtherCategory($category, $title) {
+        $help = $this->getCategoryItem($category, true);
+        $parameters = array('tile-size' => null,
+            'color-bigarea' => $help['color'],
+            'icon-bigarea' => $help['icon'],
+            'image-bigarea' => null,
+            'destination-smallarea' => array('controller' => $category, 'action' => 'add'),
+            'text-overlay' => null,
+            'text-overlay-color' => 'fg-white',
+            'badge-color' => 'bg-emerald',
+            'badge-icon' => 'icon-plus-2',
+            'badge-valueAsIcon' => 'xxx',
+            'destination-bigarea' => array('controller' => $category, 'action' => 'index'),
+            'title-bigarea' => $title,
+            'title-smallarea' => null
+        );
+        return $this->tileBadge($parameters);
+    }
+
     /*
      * $parameters = array('tile-size' => null,
      *                     'color-bigarea' => 'bg-orange',
@@ -186,6 +209,7 @@ class TileHelper extends AppHelper {
      *  - if image is set image will displayed else icon is used
      *  - if badge-icon is set icon will displayed else badge-valueAsIcon is used
      */
+
     function tileBadge($parameters) {
         $result = "";
         $result .= "<div class='tile " . $parameters['tile-size'] . " " . $parameters['color-bigarea'] . "'>";
@@ -323,8 +347,8 @@ class TileHelper extends AppHelper {
         );
 
         return $this->iconTile($parameters);
-    }    
-    
+    }
+
     public function addTile() {
         $parameters = array('tileSize' => null,
             'color' => 'bg-green',
