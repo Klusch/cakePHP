@@ -32,6 +32,9 @@ var plugins = [
     'drag-tile',
     'scroll',
     'pull',
+    'wizard',
+    'panel',
+    'tile-transform',
 
     'initiator'
 
@@ -39,5 +42,5 @@ var plugins = [
 ];
 
 $.each(plugins, function(i, plugin){
-    $("<script/>").attr('src', '/js/metro/metro-'+plugin+'.js').appendTo($('head'));
+    $("<script/>").attr('src', 'js/metro/metro-'+plugin+'.js').appendTo($('head'));
 });

@@ -43,9 +43,11 @@ var modules = [
     module_path+'metro-streamer.js',
     module_path+'metro-scroll.js',
     module_path+'metro-stepper.js',
+    module_path+'metro-pull.js',
+    module_path+'metro-wizard.js',
+    module_path+'metro-panel.js',
+    module_path+'metro-tile-transform.js',
     module_path+'metro-initiator.js',
-    module_path+'metro-pull.js'
-
 ];
 
 new compressor.minify({
@@ -70,8 +72,17 @@ new compressor.minify({
 new compressor.minify({
     type: 'yui-css',
     fileIn: css_path+'metro-bootstrap-responsive.css',
-    fileOut: css_compile_path+'metro-responsive.min.css',
+    fileOut: css_compile_path+'metro-bootstrap-responsive.min.css',
     callback: function(err, min){
         if (err) console.log(err); else console.log("responsive css compiled");
+    }
+});
+
+new compressor.minify({
+    type: 'yui-css',
+    fileIn: css_path+'iconFont.css',
+    fileOut: css_compile_path+'iconFont.min.css',
+    callback: function(err, min){
+        if (err) console.log(err); else console.log("icon font css compiled");
     }
 });
