@@ -1,0 +1,18 @@
+Model
+=====
+Username required
+One time password required
+
+
+View / Helper
+=============
+One time password
+New password
+Retype new password
+
+Controller
+==========
+Wrong username, password or userrole
+Password changed
+Passwords did not match
+Password does not satisfy constaints

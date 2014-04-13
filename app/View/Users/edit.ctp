@@ -1,23 +1,38 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('group_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php 
+// app/View/Users/edit.ctp
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Groups'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+// == Breadcrumbs ==
+$this->start('breadCrumbs');
+    $crumbs = array(
+                 array('text' => __('Usermanagement'), 'link' => array('controller' => 'users','action' => 'index')),
+                 array('text' => __('User edit'), 'link' => array('action' => '#'))
+              );
+    echo $this->App->breadcrumbs($crumbs);
+$this->end();
+
+
+$this->start('frameRequest');
+   echo 'false';
+$this->end();  
+
+$this->start('topTiles');
+
+   echo $this->Category->tile();
+   echo $this->Operation->add(null, $groupsExtended['Group']['id']);
+   
+   if (isset($this->params['data']['User']) &&
+       $this->Session->read('Auth.User.username') == $this->params['data']['User']['username']) {
+       echo $this->Tile->special('icon-minus-2',	array(), 'bg-grayLight');
+   } else {
+      echo $this->Operation->delete($this->Form->value('User.id'));
+   };
+  	
+   echo $this->Input->submit();
+   $destination =  array('controller' => 'companies', 'action' => 'index');
+   echo $this->User->companyTileBadge($destination, __('List companies'));
+
+$this->end();
+
+echo $this->Input->formDivWithId('User', $this->User->createInputFields($this));
+
+?>

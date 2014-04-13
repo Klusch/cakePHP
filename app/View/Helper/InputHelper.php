@@ -9,30 +9,61 @@
  */
 class InputHelper extends AppHelper {
 
-    public $helpers = array('Html', 'Form');
+    public $helpers = array('Html', 'Form', 'Tile', 'JSSubmit');
     private $datePicker = 'datepicker';
 
     // ===========================================================================
     // ====================== ADD/EDIT Masken ====================================
 
 
-    public function createChooseField($id, $label) {
-        return $this->createTextInputField($id, $label, 'checkbox');
-    }
-
-    public function createTextInputField($id, $label = '') {
-        return $this->createInputField($id, $label, 'text');
-    }
-
-    public function createDatePickerField($label) {
-        return $this->createInputField($this->datePicker, $label, $this->datePicker);
-    }
-
     public function createIdInputField() {
-        return $this->createTextInputField('id');
+        return $this->createTextInputField('id', '', null);
     }
 
-    public function createInputField($id, $label, $type, $disabled = false, $selection = null, $emptySelectable = false, $options = array()) {
+    public function createTextInputField($id, $label = '', $value = null, $placeholder = '') {
+        return $this->createInputField($id, $label, 'text', false, null, false, array(), $value, $placeholder);
+    }
+
+    public function createDatePickerField($label, $id = null, $value = null) {
+        if ($id == null) {
+            $id = $this->datepicker;
+        }
+        return $this->createInputField($id, $label, $this->datePicker, false, null, false, array(), $value);
+    }
+
+    public function createChoiseField($id, $model, $label = '', $enabled = false) {      
+         return array(
+            'id' => $id,
+            'type' => 'choise',
+            'label' => $label,
+            'enabled' => $enabled,
+            'model' => $model,
+            'dataField' => $id,
+            'text' => ''
+        );       
+    }
+    
+    // Bugy
+    protected function createChooseField($id, $buttons, $label = '') {
+        return array(
+            'id' => $id,
+            'type' => 'choose',
+            'buttons' => $buttons,
+            'label' => $label
+        );
+    }
+
+    // Bugy
+    protected function createSwitchField($id, $label, $enabled) {
+        return array(
+            'id' => $id,
+            'type' => 'switch',
+            'label' => $label,
+            'enabled' => $enabled
+        );
+    }    
+    
+    public function createInputField($id, $label, $type, $disabled = false, $selection = null, $emptySelectable = false, $options = array(), $value = null, $placeholder = '') {
         return array(
             'id' => $id,
             'label' => $label,
@@ -40,12 +71,19 @@ class InputHelper extends AppHelper {
             'disabled' => $disabled,
             'selection' => $selection,
             'emptySelectable' => $emptySelectable,
-            'options' => $options
+            'options' => $options,
+            'value' => $value,
+            'placeholder' => $placeholder
         );
     }
 
     public function submit() {
-        return $this->specialTile('icon-enter-2', null, 'bg-emerald', null, array('id' => 'submitTileId'));
+        return $this->Tile->basic(
+                        $this->Tile->icon('enter-2', __('Send response')), array(
+                    'tileClass' => 'bg-emerald',
+                    'id' => 'submitTileId',
+                    'xxx' => 'yyy')
+        );
     }
 
     public function formDivWithId($model, $fields = array()) {
@@ -57,86 +95,78 @@ class InputHelper extends AppHelper {
 
         $target = '<div id="hgl-add" class="exampleXXX">';
 
-        $target .= $this->Form->create($model, array('id' => $model . 'Form',
+        $target .= $this->Form->create($model, array(
+            'id' => $model . 'Form',
             'inputDefaults' => array(
                 'label' => false,
-            //'div' => false
-        )));
+                //'div' => false
+            )
+        ));
 
         $target .= '<table class="table striped">
 				<tbody>';
 
         foreach ($fields as $i => $field) {
-            if (strcmp($i, 'choose') == 0) {
-               $target .= $this->replaceForChoose($field);
+            if ($field['id'] == 'id') {
+                $target .= $this->Form->input($field['id']);
             } else {
-                if ($field['id'] == 'id') {
-                    $target .= $this->Form->input($field['id']);
-                } else {
-                    $target .= $this->typeField($field);
-                }
+                $target .= $this->typeField($field);
             }
         }
 
         $target .= '</tbody>
 				</table>';
 
-        $target .= '<script>
-				(function execute() {
-		  $( "#submitTileId" ).click(function() {
-				$( "#' . $model . 'Form' . '" ).submit();
-	});
-	})();
-						</script>';
+        $formname = $model . 'Form';
+        $target .= $this->JSSubmit->enter($formname);
 
         $target .= '</div>';
 
         return $target;
     }
 
-    private function replaceForChoose($field) {
-        return "<tr>
-                  <td class='text-left' style='vertical-align:middle'><strong>Check me</strong><td>
-                  <div class='input-control checkbox' data-role='input-control'>
-                      <label class='inline-block'>
-                            <input checked='' type='checkbox'>
-                            <span class='check'></span></label>
-                  </div>
-                  </td>
-                </tr>";
-    }
-    
     private function typeField($field) {
+        switch ($field['type']) {
+            case 'choise' :
+                return $this->choiseFields($field);
+            case 'choose' :
+                return $this->chooseFields($field);                
+            case 'switch' :
+                return $this->switchFields($field);
+            default:
+                return $this->kindOfTextFields($field);
+        }
+    }
 
-        $class = 'input-control text nbm';
-        $dataRole = 'input-control';
+    private function kindOfTextFields($field) {
+        $inp = array(
+            'selected' => $field['selection'],
+            'label' => false,
+            'disabled' => $field['disabled']
+        );
 
         switch ($field['type']) {
-            case 'text' : break;
-            case 'password' : $class = 'input-control password nbm';
+            case 'text' :
+                $inp['div'] = array('class' => 'input-control text nbm', 'data-role' => 'input-control');
                 break;
-            case 'selection' : $class = 'input-control select nbm';
+            case 'password' :
+                $inp['autocomplete'] = 'off';
+                $inp['type'] = 'password';
+                $inp['div'] = array('class' => 'input-control password nbm', 'data-role' => 'input-control');
                 break;
-            case $this->datePicker : $class = 'input-control text';
-                $dataRole = 'datepicker';
+            case 'selection' :
+                $inp['div'] = array('class' => 'input-control select nbm', 'data-role' => 'input-control');
+                break;
+            case $this->datePicker :
+                $inp['id'] = $field['id'];
+                $inp['readonly'] = 'readonly';
+                $inp['div'] = array('class' => 'input-control text', 'data-role' => 'datepicker', 'data-format' => $this->dateFormat);
                 break;
         }
 
-        $inp = array('selected' => $field['selection'],
-            'label' => false,
-            'disabled' => $field['disabled'],
-            'div' => array('class' => $class, 'data-role' => $dataRole)
-        );
-        if ($field['type'] == 'password') {
-            $inp['autocomplete'] = 'off';
-        }
 
-
-        if ($field['type'] == $this->datePicker) {
-            $inp['id'] = $field['id'];
-            $inp['after'] = "<button class='btn-date'></button>";
-            $inp['readonly'] = 'readonly';
-            $inp['div'] = array_merge($inp['div'], array('data-format' => $this->dateFormat));
+        if ($field['value'] != null) {
+            $inp['value'] = $field['value'];
         }
 
         if ($field['emptySelectable']) {
@@ -146,15 +176,136 @@ class InputHelper extends AppHelper {
             $inp['options'] = $field['options'];
         }
 
-        $result = "";
-        $result .= "<tr>";
-        $result .= "  <td class='text-left' style='vertical-align:middle'><strong>" . $field['label'] . ":</strong></td>";
-        $result .= "  <td>";
-        $result .= $this->Form->input($field['id'], $inp);
+        $inp['placeholder'] = $field['placeholder'];
 
-        $result .= "  </td>";
-        $result .= "</tr>";
-        return $result;
+        return $this->createTableElement($field, $inp);        
+    }
+    
+    private function createTableElement($field, $inp) {
+        return "<tr>
+                  <td class='text-left' style='vertical-align:middle;'><strong>" . $field['label'] . ":</strong></td>
+                  <td>" . $this->Form->input($field['id'], $inp) . "</td>
+                </tr>";
+    }
+
+    private function chooseFields($fields) {
+$model = 'BaseStation';
+$dataFieldConcat = 'AquireData';
+$dataField = 'aquire_data';        
+       $result = "<tr>
+                     <td class='text-left' style='vertical-align:middle;'><strong>" . $fields['label'] . "</strong></td>
+                     <td>
+                        <div class='input-control radio default-style inline-block' data-role='input-control'>";
+       foreach ($fields['buttons'] as $field) {
+           $result .= "<label class='inline-block'>
+                          <input id='" . $model.$dataFieldConcat . "' name='data[".$model."][" . $dataField . "]' ";
+                             if ($field['checked']) { $result .= "checked='' "; }
+           $result .= "type='radio'>
+                             <span class='check'></span>". $field['name'] .
+                       "</label>";
+       }
+       $result .= "</div></td></tr>";
+       return $result;
+    }    
+    
+    private function choiseFields($fields) {
+       $model = $fields['model'];
+       $dataField = $fields['dataField'];
+       $dataFieldConcat = Inflector::camelize($dataField);
+       $text = $fields['text'];
+
+       $result = "<tr>
+                     <td class='text-left' style='vertical-align:middle;'><strong>" . $fields['label'] . "</strong></td>
+                     <td>
+                     <div class='input-control checkbox' data-role='input-control'>
+                        <label class='inline-block'>
+                            <input id='" . $model.$dataFieldConcat . "' name='data[".$model."][" . $dataField . "]' ";
+                            if($fields['enabled']) { $result .= "checked='checked' "; }
+       $result .=                 " type='checkbox'>
+                            <span class='check'></span>".
+                            $text 
+                     . "</label>
+                     </div>
+                     </td>
+                   </tr>";
+       return $result;
+    }
+    
+    private function switchFields($field) {
+$model = 'BaseStation';
+$dataFieldConcat = 'AquireData';
+$dataField = 'aquire_data';
+$value = $this->request->data[$model][$dataField];        
+
+       $result = "<tr>
+                     <td class='text-left' style='vertical-align:middle;'><strong>" . $field['label'] . "</strong></td>
+                     <td class='text-left' style='vertical-align:middle;'>
+                        <div class='input-control switch' data-role='input-control'>
+                           <label class='inline-block' style='margin-right: 20px'>
+                              <input id='" . $model.$dataFieldConcat . "' value='" . $value . "' ";
+                                 if ($value == 1) { $result .= "checked='false' "; }
+        $result .=                        "type='checkbox' name='data[".$model."][" . $dataField . "]'>
+                              <span class='check'></span>
+                           </label>
+                        </div>
+                      </td>
+                  </tr>";
+       return $result;
+    }    
+    
+    public function dynamicTextField($id, $label, $value = '', $options = array()) {
+        $options = $this->fillDefaults($options, array(
+            'maxlength' => 255,
+            'type' => 'text',
+            'required' => false
+        ));
+        $maxlength = $options['maxlength'];
+        $required = $options['required'] ? "required='required'" : "";
+        return "
+            <div class='input-control text' data-role='input-control'>
+                <input maxlength='$maxlength' type='text' value='$value' id='$id' placeholder='$label' $required>
+                <button class='btn-clear' tabindex='-1' type='button'></button>
+            </div>
+            ";
+    }
+
+    public function dynamicForm($contents) {
+        $width = '200px';
+        return "
+            <div style='width:$width'>" .
+                implode(" ", $contents) . "
+            </div>";
+    }
+
+    public function dynamicSelectionField($id, $possibilities, $selected = null) {
+        return "
+            <div id='$id' class='input-control select' data-role='input-control'>
+                <select>" .
+                call_user_func(function ($possibilities) use ($selected) {
+                    $r = "";
+                    foreach ($possibilities as $i => $p) {
+                        $r .= "<option value='$i'" . ($i == $selected ? " selected='selected'" : "") . "> $p </option>";
+                    }
+                    return $r;
+                }, $possibilities) . "
+                </select>
+            </div>
+            "
+        ;
+    }
+
+    public function dynamicDatePicker($id, $label, $default = null) {
+        return "
+            <div id='$id' class='input-control text'>
+                <input type='text'>
+                    <button class='btn-date'></button>
+                </input>
+            </div>   
+            <script>" .
+                ($default != null ? "$('input', '#$id').val('$default')" : "") . "
+                $('#$id').datepicker();
+            </script>
+            ";
     }
 
 }

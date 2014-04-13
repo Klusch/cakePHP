@@ -1,21 +1,31 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Add User'); ?></legend>
-	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('group_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php
+// app/View/Users/add.ctp
+// ----------------------------------
+$this->start('frameRequest');
+   echo 'false';
+$this->end();    
+// ----------------------------------
 
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Groups'), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Group'), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+// ----------------------------------
+$this->start('breadCrumbs');
+    $crumbs = array(
+                 array('text' => __('Usermanagement'), 'link' => array('controller' => 'users', 'action' => 'index')),
+                 array('text' => __('New user'), 'link' => array('action' => '#'))
+              );
+    echo $this->App->breadcrumbs($crumbs);
+$this->end();
+// ----------------------------------
+
+// ----------------------------------
+$this->start('topTiles');
+   echo $this->Category->tile();
+   echo $this->Input->submit();
+   $destination =  array('controller' => 'companies', 'action' => 'index');
+   echo $this->User->companyTileBadge($destination, __('List companies'));             
+$this->end();
+// ----------------------------------
+
+
+echo $this->Input->formDiv('User', $this->User->createInputFields($this, $selection));
+?>
+

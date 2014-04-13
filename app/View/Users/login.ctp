@@ -1,44 +1,23 @@
 <?php
-  // app/View/Users/login.ctp
+// app/View/Users/login.ctp
 $this->start('frameRequest');
-   echo 'true';
-$this->end();  
+echo 'true';
+$this->end();
 
 $this->start('topTiles');
-   echo $this->Tile->getCategoryItem('userlogin');
-   echo $this->Tile->submitTile();
-   
-   $destination = array('controller' => 'pages', 'action' => 'display', 'home');
-   echo $this->Tile->cancelTile($destination);
-   
-   echo $this->Tile->emptyTilesBar(4);
+
+//echo $this->Nav->topTilesTest();
+echo $this->Tile->special('icon-key', null, 'bg-green');
+echo $this->Input->submit();
+$destination = array('controller' => 'pages', 'action' => 'display', 'home');
+echo $this->Tile->special('icon-cancel-2', $destination, 'bg-darkRed');
+
+$destination = array('controller' => 'OneTimeLogin', 'action' => 'index');
+echo $this->Tile->special('icon-comments-2', $destination, 'bg-yellow');
 $this->end();
 ?>
 
 <?php
-echo "<h2>".__('Login')."</h2>";
-echo $this->Form->create('User', array('url' => array('controller' => 'users', 'action' => 'login'),
-                                       //'align' => 'center'
-                                       )
-                         );
-echo $this->Form->input('User.username', array('label' => __('Username'),
-                                               //'align' => 'center'
-                                               )
-                       );
-echo $this->Form->input('User.password', array('label' => __('Password'), 'id' => 'password'));
-echo $this->Form->end();
+echo "<h2>" . __('Login') . "</h2>";
+echo $this->Input->formDiv('User', $this->User->createLoginFields());
 ?>
-
-<script>
-   (function execute() {
-     $( "#submitTileId" ).click(function() {
-	$( "#UserLoginForm" ).submit();
-     });
-   })();
-   
-   $( "#UserLoginForm" ).keypress(function(e) {
-      if (e.keyCode == 13) {
-          $( "#UserLoginForm" ).submit();
-      }
-   });
-</script>

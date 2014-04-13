@@ -52,7 +52,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 Sorry, but this site relays entirely on javascript. <br />
 For your information, it doesn't include any tracker or any script linking to another domain.
 </noscript>
-<?php echo $this->Session->flash(); ?>
+
+<?php
+   $user = $this->Session->read('Auth.User');
+   echo $this->Session->flash();
+?>
 	<div id="container">
 	
 	   <div class="grid" style="margin-bottom:0;">
@@ -84,32 +88,9 @@ For your information, it doesn't include any tracker or any script linking to an
         </div><!-- ENDE contentWithTiles -->
 
 	</div><!-- ENDE grid -->
-	<?php echo $this->element('sql_dump'); ?>
         
-        <script>
-            $(function() {
-                const tileSize = 130;             
-                var elements = $("#toptiles > div").size();
-                var width = elements * tileSize;
-                $("#content-balloon-without-frame").attr('style', function(i,s) { return s + '; width: '+width+'px !important;' });
-                width = width  - 10;
-                $("#content-balloon-frame").attr('style', function(i,s) { return s + '; width: '+width+'px !important;' });
-            });
-            
-              // Polling by JavaScript (jQuery)
-//             (function worker() {
-//                $.ajax({
-//                  url: 'ajax/index', 
-//                  success: function(data) {
-//                  //$('.result').html(data);
-//                  },
-//                  complete: function() {
-//                    // Schedule the next request when the current one's complete
-//                    setTimeout(worker, 5000);
-//                  }
-//                });
-//             })();
-
-        </script>
+<?php  echo $this->Html->script('hagleitner/custom-messages.js'); ?>        
+<?php  echo $this->JSResize->contentResizer($user, $this->request->params['controller']); ?>
+        
 </body>
 </html>

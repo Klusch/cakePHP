@@ -77,3 +77,22 @@ $this->end();
      <img src="img/Eiskoenigin/1.jpg">
   </div>
 </div>
+
+<?php
+    $pictures = array('mainPicture' => array('source' => 'Programme/Abbyy_FineReader_11.jpg', 'alt' => 'Text'),
+                      'overlayPicture' => 'ok.jpg',
+                      'statusPictures' => array(array ('source' => 'falsch.jpg', 'alt' => 'Text',
+                                                       'title' => 'Text', 'link' => array('controller' => 'Status', 'action' => 'index')
+                                                      ),
+                                                array ('source' => 'ok.jpg', 'alt' => 'Text',
+                                                       'title' => 'Text', 'link' => array('controller' => 'Status', 'action' => 'index')
+                                                      ),
+                                                array ('source' => 'falsch.jpg', 'alt' => 'Text',
+                                                       'title' => 'Text')                          
+                                                )
+                     );
+    $link = array('id' => 'idxxx', 'link' => array('controller' => 'AController', 'action' => 'index'));
+    $text = array('zeile1', 'zeile2', 'zeile3');
+    
+   echo $this->ProjectSpecific->statusTile($link, $pictures, $text);
+?>
