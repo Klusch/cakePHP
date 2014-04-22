@@ -51,7 +51,7 @@ $this->end();
   $parameters = array( 'tileSize' => 'double',
       	               'color' => null,
       	               'icon' => null,
-                       'image' => 'img/Eiskoenigin/3.jpg',
+                       'image' => 'img/Filme/Background/3.jpg',
       	               'destination' => null,
       	               'title' => 'Die Eiskönigin',
       	               'text' => 'Die Eiskönigin'
@@ -62,19 +62,19 @@ $this->end();
 
 <div class="tile double">
   <div class="tile-content image">
-     <img src="img/Eiskoenigin/3.jpg">
+     <img src="img/Filme/Background/3.jpg">
   </div>
 </div>
 
 <div class="tile double">
   <div class="tile-content image">
-     <img src="img/Eiskoenigin/2.jpg">
+     <img src="img/Filme/Background/2.jpg">
   </div>
 </div>
 
 <div class="tile double">
   <div class="tile-content image">
-     <img src="img/Eiskoenigin/1.jpg">
+     <img src="img/Filme/Background/1.jpg">
   </div>
 </div>
 

@@ -25,13 +25,6 @@ class Movie extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Imdb' => array(
-			'className' => 'Imdb',
-			'foreignKey' => 'imdb_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'MovieCategories' => array(
 			'className' => 'MovieCategories',
 			'foreignKey' => 'movie_categories_id',
