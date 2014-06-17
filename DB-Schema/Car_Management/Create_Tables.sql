@@ -49,10 +49,23 @@ CREATE TABLE shops (
     UNIQUE (name)
 ) CHARSET=utf8;
 
+-- ALTER TABLE troubleshootings DROP FOREIGN KEY troubleshootings_ibfk_1;
+-- ALTER TABLE troubleshootings DROP COLUMN utility_id;
+CREATE TABLE troubleshootings (
+    id            INTEGER AUTO_INCREMENT,
+    description   VARCHAR(255) NOT NULL,    
+    modified      DATETIME,
+    created       DATETIME,
+    PRIMARY KEY (id)
+) CHARSET=utf8;
+
+-- ALTER TABLE utilities ADD COLUMN troubleshooting_id INTEGER;
+-- ALTER TABLE utilities ADD CONSTRAINT FOREIGN KEY(troubleshooting_id) REFERENCES troubleshootings(id);
 CREATE TABLE utilities (
     id            INTEGER AUTO_INCREMENT,
     name          VARCHAR(100) NOT NULL,
     shop_id       INTEGER,
+    troubleshooting_id INTEGER,
     price         DECIMAL(4,2),
     ordered       DATETIME,
     delivered     DATETIME,
@@ -60,17 +73,8 @@ CREATE TABLE utilities (
     created       DATETIME,
     PRIMARY KEY (id),
     UNIQUE (name),
-    FOREIGN KEY(shop_id) REFERENCES shops(id)
-) CHARSET=utf8;
-
-CREATE TABLE troubleshootings (
-    id            INTEGER AUTO_INCREMENT,
-    utility_id    INTEGER,
-    description   VARCHAR(255) NOT NULL,    
-    modified      DATETIME,
-    created       DATETIME,
-    PRIMARY KEY (id),
-    FOREIGN KEY(utility_id) REFERENCES utilities(id)
+    FOREIGN KEY(shop_id) REFERENCES shops(id),
+    FOREIGN KEY(troubleshooting_id) REFERENCES troubleshootings(id)
 ) CHARSET=utf8;
 
 CREATE TABLE colors (

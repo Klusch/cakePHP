@@ -30,28 +30,13 @@ class Utility extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
-	);
-
-/**
- * hasMany associations
- *
- * @var array
- */
-	public $hasMany = array(
+		),
 		'Troubleshooting' => array(
 			'className' => 'Troubleshooting',
-			'foreignKey' => 'utility_id',
-			'dependent' => false,
+			'foreignKey' => 'troubleshooting_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+			'order' => ''
 		)
 	);
-
 }

@@ -15,6 +15,7 @@ class TroubleshootingTest extends CakeTestCase {
 	public $fixtures = array(
 		'app.troubleshooting',
 		'app.utility',
+		'app.shop',
 		'app.problem',
 		'app.problem_location',
 		'app.priority',
