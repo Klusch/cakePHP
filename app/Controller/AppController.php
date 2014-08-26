@@ -51,7 +51,7 @@ class AppController extends Controller {
 		//$this->Auth->allow('index', 'view');
 		
 		// allow everything
-		//$this->Auth->allow();
+		$this->Auth->allow();
 		
 		// allow home
 		//$this->Auth->allow('display');
