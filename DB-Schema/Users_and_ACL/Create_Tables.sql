@@ -7,16 +7,43 @@ CREATE TABLE groups (
     UNIQUE (name)    
 ) CHARSET=utf8;
 
+CREATE TABLE languages (
+    id            INTEGER AUTO_INCREMENT,
+    name          NVARCHAR(255) NOT NULL,    
+    modified      DATETIME,
+    modified_by   INTEGER,
+    created       DATETIME,
+    created_by    INTEGER,
+    PRIMARY KEY (id)
+  ) CHARSET=utf8;  
+  
+CREATE TABLE timezones (
+    id            INTEGER AUTO_INCREMENT,
+    name          NVARCHAR(255) NOT NULL,    
+    modified      DATETIME,
+    modified_by   INTEGER,
+    created       DATETIME,
+    created_by    INTEGER,
+    PRIMARY KEY (id)
+  ) CHARSET=utf8;  
+
 CREATE TABLE users (
     id        INTEGER AUTO_INCREMENT,
     username  VARCHAR(255) NOT NULL,
     password  CHAR(40) NOT NULL,
     group_id  INTEGER NOT NULL,
+    language_id  INTEGER DEFAULT 1,
+    timezone_id  INTEGER DEFAULT 419,
+    first_name   VARCHAR(50),
+    last_name    VARCHAR(50),
+    email        VARCHAR(50),
     created   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified  TIMESTAMP,
     PRIMARY KEY(id),
     CONSTRAINT uc_userUsername UNIQUE (username),
-    CONSTRAINT fk_user__group FOREIGN KEY(group_id) REFERENCES groups(id)
+    CONSTRAINT fk_user__group FOREIGN KEY(group_id) REFERENCES groups(id),
+    CONSTRAINT fk_user__language FOREIGN KEY(language_id) REFERENCES languages(id),
+    CONSTRAINT fk_user__timezone FOREIGN KEY(timezone_id) REFERENCES timezones(id)       
 ) CHARSET=utf8;
 
 CREATE TABLE aros (

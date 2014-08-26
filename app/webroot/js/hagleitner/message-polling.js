@@ -7,7 +7,7 @@ $(function polling() {
         },
         complete: function() {
             // Schedule the next request when the current one's complete
-            setTimeout(polling, 5000);
+            setTimeout(polling, 50000);
         }
     });
 })();

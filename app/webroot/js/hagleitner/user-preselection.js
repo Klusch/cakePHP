@@ -6,22 +6,24 @@ $('#parent-accordion').click(function() {
     $(this).children('div').each(function() {
         $(this).children('a').each(function() {
             var myClass = $(this).attr('class');
-            if (myClass.indexOf("collapsed") < 0) {
-                var heading = $(this).find('#accordion-heading').text();
-                heading = $.trim(heading);
-                switch (heading) {
-                    case ('Hagleitner-Techniker') :
-                        addSequenzToAdd(1);
-                        break;
-                    case 'Lokaler Administrator' :
-                        addSequenzToAdd(2);
-                        break;
-                    case 'Reinigungs-Koordinator' :
-                        addSequenzToAdd(3);
-                        break;
-                    default:
-                        addSequenzToAdd(4);
+            
+            if (myClass.indexOf("collapsed") < 0) {  
+                
+                var str = $(this).attr('id');
+              
+                if (str.toLowerCase().indexOf("hagleitner") >= 0) {
+                    addSequenzToAdd(1);
                 }
+                if (str.toLowerCase().indexOf("administrator") >= 0) {
+                    addSequenzToAdd(2);
+                }                    
+                if (str.toLowerCase().indexOf("supervisor") >= 0) {
+                    addSequenzToAdd(3);
+                }
+                if (str.toLowerCase().indexOf("worker") >= 0) {
+                    addSequenzToAdd(4);
+                }
+                
             }
         });
     });

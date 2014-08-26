@@ -1,5 +1,6 @@
 <?php
 // app/View/Users/index.ctp
+// --------------------------------
 // == Breadcrumbs ==
 $this->start('breadCrumbs');
   $crumbs = array(
@@ -8,24 +9,38 @@ $this->start('breadCrumbs');
   );
   echo $this->App->breadcrumbs($crumbs);
 $this->end();
+// --------------------------------
 
+// --------------------------------
 // == Frames ==
 $this->start('frameRequest');
   echo 'false';
 $this->end();
+// --------------------------------
 
+// --------------------------------
 // == Top-Tiles ==
 $this->start('topTiles');
   echo $this->Category->tile();
-  echo $this->Operation->add('', null, 'preselection');
-  $destination = array('controller' => 'companies', 'action' => 'index');
-  echo $this->Tile->special('icon-layers', $destination, 'bg-orange', __('List companies'));
+  echo $this->Category->getCategoryHeadline();
 $this->end();
-?>
+// --------------------------------
 
-<?php
+// --------------------------------
+// == JavaScript ==
+$this->start('pageScripts');
+echo "<script>
+   function contentRequest(element) {
+      alert('oh');   
+   }
+   </script>";
+$this->end();
+// --------------------------------
+
+// ================================
 // == Content ==
-echo "<div>";
+
+echo $this->Input->getFilterField('filterTileSuggestionInputId');
 
 $frames = array();
 foreach ($groups as $i => $group) {
@@ -34,18 +49,13 @@ foreach ($groups as $i => $group) {
 
     $frames[] = array(
         'head' => __($group['Group']['name']),
-        'content' => $this->User->userAsContent($tmp, $usersGrouped[$i]),
-        'size' => count($usersGrouped[$i]['users'])
+        'content' => $this->User->userAsContent($group['Group']['id'], $usersGrouped[$i]),
+        'size' => count($usersGrouped[$i]['users']),
+        'id' => ' ' . $group['Group']['name']
     );
 
 }
-echo "</div><div style='clear:both'></div>";
 
-echo "<div class='listview'>";
 echo $this->App->accordion($frames, $activatedId);
-echo "</div>";
 
-
-// --- JavaScript ---
-echo $this->Html->script('hagleitner/user-preselection.js');
 ?>

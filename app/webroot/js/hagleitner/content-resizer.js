@@ -17,24 +17,41 @@ function smallSize() {
     $("nav.breadcrumbs").addClass('small');
     $("nav.breadcrumbs").removeClass('mini');
     makeTilesNormal();
-    
 }
 
 function normalSize() {
     $("nav.breadcrumbs").removeClass('small');
     $("nav.breadcrumbs").removeClass('mini');
+    makeTilesNormal();
 }
 
 function makeTilesMini() {
     $("#toptiles div.tile").each(function() {
         $(this).addClass("half");
-    }
-    );
+        
+        var change = 0;
+        var classtype = $(this).attr('class');
+        if (classtype.search('double') !== -1) {
+           width = 2 * 58;
+           change = 1;
+        }
+        if (classtype.search('triple') !== -1) {
+           width = 3 * 58;
+           change = 1;
+        }
+        
+        if (change === 1) {
+          $(this).css({'width': ''}).attr('style', function(i, s) {
+            return s + '; width: ' + width + 'px !important;'
+          });       
+        }
+    });
 }
 
 function makeTilesNormal() {
     $("#toptiles div.tile").each(function() {
         $(this).removeClass("half");
+        $(this).removeAttr( "style" );
     }
     );
 }

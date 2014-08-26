@@ -19,13 +19,18 @@ $this->end();
 // ----------------------------------
 $this->start('topTiles');
    echo $this->Category->tile();
-   echo $this->Input->submit();
-   $destination =  array('controller' => 'companies', 'action' => 'index');
-   echo $this->User->companyTileBadge($destination, __('List companies'));             
+   echo $this->Category->getCategoryHeadline('useradd');
 $this->end();
 // ----------------------------------
 
-
-echo $this->Input->formDiv('User', $this->User->createInputFields($this, $selection));
+// ================================
+    echo $this->Input->getForm('User', null);
+    
+    $fields = $this->User->createInputFields($this, $selection);
+    $buttons = $this->App->getSaveAndResetButtons();
+    $fieldset = $this->Input->getFieldset($fields, $buttons);
+    
+    echo $fieldset;
+    echo $this->Input->closeForm();
 ?>
 

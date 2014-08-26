@@ -1,6 +1,6 @@
 <?php 
 // app/View/Users/edit.ctp
-
+// --------------------------------
 // == Breadcrumbs ==
 $this->start('breadCrumbs');
     $crumbs = array(
@@ -9,30 +9,42 @@ $this->start('breadCrumbs');
               );
     echo $this->App->breadcrumbs($crumbs);
 $this->end();
+// --------------------------------
 
-
+// --------------------------------
 $this->start('frameRequest');
    echo 'false';
 $this->end();  
+// --------------------------------
 
+// --------------------------------
 $this->start('topTiles');
 
-   echo $this->Category->tile();
-   echo $this->Operation->add(null, $groupsExtended['Group']['id']);
+   echo $this->Category->tile();  
+   echo $this->Category->getCategoryHeadline('useredit');
    
-   if (isset($this->params['data']['User']) &&
-       $this->Session->read('Auth.User.username') == $this->params['data']['User']['username']) {
-       echo $this->Tile->special('icon-minus-2',	array(), 'bg-grayLight');
-   } else {
-      echo $this->Operation->delete($this->Form->value('User.id'));
+   if (!(isset($this->params['data']['User']) &&  $this->Session->read('Auth.User.username') == $this->params['data']['User']['username'])) {
+       if (count($cleaningGroups) > 0) {
+           // User is mapped on clenaning groups
+           $id = $this->Form->value('User.id');
+           $warning = __('!!! The user is assigned to cleaning groups and will be removed there !!!') . '\n\n';
+           $warning .= __('Continue deleting?');
+           echo $this->Operation->deleteByAction('delete/' . $id, $warning);
+       } else {
+           echo $this->Operation->delete($this->Form->value('User.id'));
+       }
    };
   	
-   echo $this->Input->submit();
-   $destination =  array('controller' => 'companies', 'action' => 'index');
-   echo $this->User->companyTileBadge($destination, __('List companies'));
-
 $this->end();
+// --------------------------------
 
-echo $this->Input->formDivWithId('User', $this->User->createInputFields($this));
-
+// ================================
+    echo $this->Input->getForm('User', null);
+    
+    $fields = $this->User->createInputFields($this);
+    $buttons = $this->App->getSaveAndDeleteButtons(false);
+    $fieldset = $this->Input->getFieldset($fields, $buttons);
+    
+    echo $fieldset;
+    echo $this->Input->closeForm();
 ?>

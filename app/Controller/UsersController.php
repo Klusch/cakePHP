@@ -1,10 +1,11 @@
 <?php
 
 App::uses('AppController', 'Controller');
-
+App::uses('LnkCleaningGroupUser', 'Model');
 class UsersController extends AppController {
 
     public $components = array('Paginator');
+    //private $successfull = array('controller' => 'Configurations', 'action' => 'index');
     private $successfull = array('controller' => 'Pages', 'action' => 'display', 'home');
     private $landingPage = array('controller' => 'Pages', 'action' => 'display', 'home');
 
@@ -107,11 +108,10 @@ class UsersController extends AppController {
         $this->set('user', $user);
     }
    
-     public function add($selection = null) {
-        $this->User->set($this->request->data);
+     public function add($selection = null) {      
+        $this->User->set($this->request->data);       
         if ($this->request->is('post')) {
             if ($this->User->validates()) {  // it validated logic
-                $this->User->create();
                 if ($this->User->save($this->request->data)) {
                     $this->Session->setFlash(__('The user has been saved.'), 'success');
                     $this->redirect(array('controller' => 'users', 'action' => 'index'));
@@ -142,12 +142,13 @@ class UsersController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             $userRequest = $this->request->data['User'];
+            $userRequest['id'] = $id;
 
             if (!isset($userRequest['username'])) {
                 $usertmp = $this->User->findById($userRequest['id']);
                 $userRequest['username'] = $usertmp['User']['username'];
             }
-
+            
             if ($this->User->save($userRequest)) {
                 $this->Session->setFlash(__('The user has been saved.'), 'success');
                 return $this->redirect(array('action' => 'index'));
@@ -162,6 +163,9 @@ class UsersController extends AppController {
         $this->request->data = $user_tmp;
 
         $this->set('groupsExtended', $this->User->Group->findById($user_tmp['User']['group_id']));
+        
+        $this->loadModel('LnkCleaningGroupUser');
+        $this->set('cleaningGroups', $this->LnkCleaningGroupUser->findByUserId($user_tmp['User']['id']));
 
         $groups = $this->i18n($this->User->Group->find('list'));
         $companies = $this->User->Company->find('list');
@@ -175,7 +179,17 @@ class UsersController extends AppController {
             throw new NotFoundException(__('Invalid user'));
         }
         $this->request->onlyAllow('post', 'delete');
-        if ($this->User->delete()) {
+        $status = -1;
+        try {
+            $status = $this->User->delete();
+        } catch (Exception $ex) {
+            $this->loadModel('LnkCleaningGroupUser');
+            $conditions = array('LnkCleaningGroupUser.user_id' => $id);
+            $this->LnkCleaningGroupUser->deleteAll($conditions, true);
+            $status = $this->User->delete();
+        }
+  
+        if ($status == 1) {
             $this->Session->setFlash(__('The user has been deleted.'), 'success');
         } else {
             $this->Session->setFlash(__('The user could not be deleted. Please, try again.'), 'failure');
@@ -236,6 +250,9 @@ class UsersController extends AppController {
                 'User.*',
                 'Group.*',
                 'Company.*'
+            ),
+            'order' => array(
+                'User.username'
             )
         );
         $users = $this->User->find('all', $options);

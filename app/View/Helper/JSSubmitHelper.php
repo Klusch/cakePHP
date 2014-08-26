@@ -2,22 +2,46 @@
 
 class JSSubmitHelper extends AppHelper {
 
-    public function enter($formname) {
-        return "<script>
-           (function execute() {
-              $('#submitTileId').click(function() {
-                   $('#".$formname."').submit()
-              })
-           })();
+	var $submitTileId = 'submitTileId';
+	var $sendResponse = 'sendResponse';
+	var $contentRequest = 'contentRequest';
+	var $filterTileSuggestionInputId = 'filterTileSuggestionInputId';
 
-           $('#".$formname."').keypress(function(e) {
-              if (e.keyCode == 13) {
-                 $('#".$formname."').submit()
-              }
-           });
-        </script>";
-    }
+	public function modelFormId($model) {
+		return $model . 'Form';
+	}
 
+	public function enter($model = '', $options = array()) {
+		$options = $this->fillDefaults($options,
+				array(
+						'sendResponse' => $this->sendResponse,
+						'suggestionInputId' => $this->filterTileSuggestionInputId
+				)
+		);
+			
+		$sendResponse = $options['sendResponse'];
+		$suggestionInputId = $options['suggestionInputId'];
+
+		$submitFunction = '';
+		if (empty($model)) {
+			$submitFunction = $sendResponse."();";
+		} else {
+			$submitFunction = "$('#".$this->modelFormId($model)."').submit();";
+		}
+		return "<script>
+					(function execute() {
+						$('#".$this->submitTileId."').click(function() {
+								".$submitFunction."				
+						})
+					})();
+	
+					function checkKeyboard(e) {
+						if (e.keyCode == 13 && document.activeElement.id != '".$suggestionInputId."') {
+								".$submitFunction."
+						}
+					}
+					window.onkeypress = checkKeyboard;
+				</script>";
+	}
 }
-
 ?>

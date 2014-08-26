@@ -1,92 +1,144 @@
 <?php
+/**
+ *
+ * PHP 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.View.Layouts
+ * @since         CakePHP(tm) v 0.10.0.1076
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', "Alex's little management");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('metro-bootstrap')."\n";
-                echo $this->Html->css('metro-bootstrap-responsive')."\n";
-//                echo $this->Html->css('iconFont')."\n";
-//                echo $this->Html->css('docs')."\n";
-                
-		echo $this->Html->script('jquery/jquery-2.1.0.min.js')."\n";
-		echo $this->Html->script('jquery/jquery-ui-1.9.2.min.js')."\n";
-		echo $this->Html->script('jquery/jquery.mousewheel.js')."\n";
-
-//		echo $this->Html->script('load-metro.js')."\n";
-                echo $this->Html->script('metro/metro-loader.js')."\n";
-		echo $this->Html->script('docs.js')."\n";
-                
-		// http://www.rgraph.net/docs/starting-with-rgraph.html
-		echo $this->Html->script('RGraph/RGraph.common.core.js')."\n";
-		echo $this->Html->script('RGraph/RGraph.common.tooltips.js')."\n";
-		echo $this->Html->script('RGraph/RGraph.common.dynamic.js')."\n";
-		echo $this->Html->script('RGraph/RGraph.pie.js')."\n";
-		
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-</head>
-<body class="metro">
-<noscript>
-Sorry, but this site relays entirely on javascript. <br />
-For your information, it doesn't include any tracker or any script linking to another domain.
-</noscript>
-
-   
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--         <meta name="viewport" content="width=device-width"> -->
+        
+        <title>
+                <?php echo $cakeDescription ?>:
+                <?php echo $title_for_layout."\n"; ?>
+        </title>
 
 <?php
 
-   echo $this->Nav->fetch('header');
-
-   $user = $this->Session->read('Auth.User');
-   echo $this->Session->flash();
+//    <link rel="stylesheet" href="css/style.css"/>
+//	<!-- <link rel="stylesheet" media="print" href="css/print.css"/> -->
+    echo $this->Html->css('metro/metro-bootstrap', array('media' => 'screen'))."\n".
+         $this->Html->css('metro/metro-bootstrap-responsive', array('media' => 'screen'))."\n".
+         $this->Html->css('metro/iconFont', array('media' => 'screen'))."\n".
+         $this->Html->css('metro/docs', array('media' => 'screen'))."\n".
+         $this->Html->css('holder/holder', array('media' => 'screen'))."\n".          
+         $this->Html->css('metro/metro-customized', array('media' => 'screen'))."\n".            
+//         $this->Html->css('metro/metro-customized', array('media' => 'screen'))."\n".
+         $this->Html->css('hagleitner', array('media' => 'screen'))."\n".
+         $this->Html->css('D3Plotting')."\n".
+         $this->Html->css('foundation-datepicker')."\n";
+    
+    echo $this->Html->css('sensor/style');
+         
+    echo $this->Html->css('metro/metro-print', array('media' => 'print'))."\n".
+         $this->Html->css('hagleitner', array('media' => 'print'))."\n"; //.
+// R        $this->Html->css('treetable/stylesheets/jquery.treetable').
+// R        $this->Html->css('treetable/stylesheets/jquery.treetable.theme.default');
+         
+    echo $this->Html->script('jquery/jquery-1.10.2.js')."\n".
+         $this->Html->script('jquery/jquery.widget.min.js')."\n".
+         $this->Html->script('lodash.js')."\n".
+         $this->Html->script('moment-with-langs.js').
+         $this->Html->script('foundation/foundation-datetimepicker.js')."\n".
+ 
+         $this->Html->script('bootstrap/bootstrap.min.js')."\n".
+         $this->Html->script('metro/metro-loader.js')."\n".
+         $this->Html->script('d3/d3.v3.min.js')."\n".
+         $this->Html->script('jquery/spin.min.js').
+// R       $this->Html->script('treetable/javascripts/src/jquery.treetable.js');
+         $this->JsTree->includes();
 ?>
-	<div id="container">
-	
-	   <div class="grid" style="margin-bottom:0;">
-	   
-         <div class="row"> <!--  style="background:rgba(255, 0, 0, 0.52);">  -->
-            <div id="toptiles" style="padding-left: 10px">
-            <?php 
-              echo $this->fetch('topTiles');
-            ?> 
-            </div>
-         </div>
-         
-         <div style="padding-left: 7px">
-           <?php echo $this->fetch('breadCrumbs'); ?> 
-         </div>
-         
-         <div id="content-row" class="row" style="padding-left: 10px; padding-top: 10px;">
 
-            <div id="content" class="content" style="margin:0px; background:rgba(220, 155, 83, 0.52);"> 
-              <?php if ($this->fetch('frameRequest') == 'true') {  
-                      echo "<div id='content-balloon-frame' class='balloon span12' style='padding:15px; width:0px'>";
-                    } else {
-                      echo "<div id='content-balloon-without-frame' class='balloon span12' style='padding:0px; border:0px;'>";	
-                    }
-                     
-                    echo $this->fetch('content');
-              ?></div>
-           </div>         
-        </div><!-- ENDE contentWithTiles -->
+</head>
 
-	</div><!-- ENDE grid -->
+<body class="metro <?php echo $this->params['controller'] ?>">
+
+   
+    
+  <noscript>
+    <div id='flash-message' class='input-control text warning-state' data-role='input-control'>
+        <?php  echo "<input value='".__('You have to activate javascript to use this application')."' type='text'>\n"; ?>
+    </div>
+  </noscript>
+    
+  <header class="bg-ak" data-load="" style="margin-top:-14px">
+  <?php
+     $user = $this->Session->read('Auth.User');
+     echo $this->Nav->topBar($user);
+  ?>     
+  </header>
+
+  
+   
+  <div class="container">
+
+    <?php echo $this->Session->flash(); ?>
+    <?php echo $this->fetch('breadCrumbs');?>  
+      
+    <!-- Obere Menüleiste -->
+    <div class="grid">
+      <?php
+        $tmp = $this->fetch('topTiles');
+        if (!empty($tmp)) {
+           echo "<div class='row'>"
+                        . $this->fetch('topTiles') .
+                "</div>";
+        }
+      ?> 
+    </div>   
         
-<?php  echo $this->Html->script('hagleitner/custom-messages.js'); ?>        
-<?php  echo $this->JSResize->contentResizer($user, $this->request->params['controller']); ?>
-        
+    <!-- Content-Bereich -->
+    <div><!--
+        <div class="left">
+            &nbsp;
+        </div>-->
+        <div id="contentWithTiles" class="row right" <?php if ($this->fetch('fullSize') == 'true') { echo " style='width:100%'"; } ?>> 
+             <!--<div id="content" class="content">-->
+                <div class='<?php echo $this->params['controller'] ?>' id='content-hgl' style='  
+                    <?php echo ($this->fetch('frameRequest') == 'true') 
+                       ? " padding:15px;"
+                       : " padding:0px; border:0px;"?>'>
+                    <?php echo $this->fetch('content'); ?>
+                    <!--<div id='dynamic-content-hgl' style='overflow : auto;height:auto'>-->
+                    </div>
+                </div>
+            <!--</div>-->
+        </div>
+
+        <?php echo $this->fetch('dynamicContent'); ?>
+    </div>       
+<!--
+    <div class="result" style="position:relative; float:left; width:250px; margin-top: 10px; height:auto"></div> 
+-->
+
+  </div><!-- Ende Container -->
+  
+<!-- JavaScript -->
+<!-- global -->
+<?php  //echo $this->Html->script('hagleitner/custom-messages.js') . "\n"; ?>
+<?php  //echo $this->JSResize->contentResizer($user, $this->request->params['controller']); ?>
+
+<!-- local -->
+<?php echo $this->fetch('pageScripts')."\n";?>
+<!-- Ende JavaScript -->
+
 </body>
 </html>

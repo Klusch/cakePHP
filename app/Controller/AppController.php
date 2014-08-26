@@ -54,7 +54,7 @@ class AppController extends Controller {
 		//$this->Auth->allow();
 		
 		// allow home
-		$this->Auth->allow('display');
+		//$this->Auth->allow('display');
 		
 		//Configure AuthComponent
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
