@@ -131,3 +131,14 @@ CREATE TABLE cars_problems (
     FOREIGN KEY(car_id) REFERENCES cars(id),
     FOREIGN KEY(problem_id) REFERENCES problems(id)
 ) CHARSET=utf8;
+
+CREATE TABLE car_fittings (
+    id            INTEGER AUTO_INCREMENT,
+    car_id        INTEGER,    
+    fitting       VARCHAR(255),
+    description   VARCHAR(255),
+    modified      DATETIME,
+    created       DATETIME,
+    PRIMARY KEY (id),
+    FOREIGN KEY(car_id) REFERENCES cars(id)
+) CHARSET=utf8;

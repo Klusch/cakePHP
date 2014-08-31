@@ -18,6 +18,12 @@ class CarTest extends CakeTestCase {
 		'app.tire_type',
 		'app.tires_tire_type',
 		'app.problem',
+		'app.problem_location',
+		'app.priority',
+		'app.color',
+		'app.troubleshooting',
+		'app.utility',
+		'app.shop',
 		'app.cars_problem'
 	);
 

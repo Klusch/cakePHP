@@ -34,8 +34,8 @@ class CarFixture extends CakeTestFixture {
 			'name' => 'Lorem ipsum dolor sit amet',
 			'hsn' => 'Lor',
 			'tsn' => 'Lor',
-			'modified' => '2014-06-15 21:06:39',
-			'created' => '2014-06-15 21:06:39'
+			'modified' => '2014-08-31 20:28:55',
+			'created' => '2014-08-31 20:28:55'
 		),
 	);
 

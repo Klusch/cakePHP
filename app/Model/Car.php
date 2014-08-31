@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Car Model
  *
+ * @property CarFitting $CarFitting
  * @property Tire $Tire
  * @property Problem $Problem
  */
@@ -24,6 +25,19 @@ class Car extends AppModel {
  * @var array
  */
 	public $hasMany = array(
+		'CarFitting' => array(
+			'className' => 'CarFitting',
+			'foreignKey' => 'car_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Tire' => array(
 			'className' => 'Tire',
 			'foreignKey' => 'car_id',
